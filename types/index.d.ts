@@ -1,247 +1,405 @@
 class Canvas {
-    /**
-     * Initialize Canvas object.
-     *
-     * @param width - unsigned integer
-     * @param height - unsigned integer
-     */
-    constructor(width: number, height: number)
+  /**
+   * Initialize Canvas object.
+   *
+   * @param width - unsigned integer
+   * @param height - unsigned integer
+   */
+  constructor(width: number, height: number)
 
-    fillStyle: string
-    strokeStyle: string
-    shadowColor: string
-    shadowBlur: number
-    shadowOffsetX: number
-    shadowOffsetY: number
-    lineCap: 'round' | 'square'
-    lineJoin: 'round' | 'miter'
-    lineWidth: number
-    miterLimit: number
-    globalAlpha: number
-    globalCompositeOperation: 'source-atop' | 'source-in' | 'source-out' | 'destination-over' | 'destination-atop' | 'destination-in' | 'destination-out' | 'lighter' | 'copy' | 'xor'
-    lineDash: string
-    font: string
-    textAlign: 'left' | 'right' | 'center' | 'start' | 'end'
-    textbaseLine: 'top' | 'hanging' | 'middle' | 'alphabetic' | 'ideographic' | 'bottom'
-    fontName: string
-    fontSize: number
-    
-    getContext(): this
-    rect(x: number, y: number, width: number, height: number): void
-    fillRect(x: number, y: number, width: number, height: number): void
-    strokeRect(x: number, y: number, width: number, height: number): void
-    clearRect(x: number, y: number, width: number, height: number): void
-    createLinearGradient(x0: number, y0: number, x1: number, y1: number): Gradient
-    createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): Gradient
-    createPattern(image: Image, style: 'repeat' | 'repeat-x' | 'repeat-y' | 'no-repeat'): PatternObject
-    drawImage(image: Image, dx: number, dy: number): void
-    drawImage(image: Image, dx: number, dy: number, dWidth: number, dHeight: number): void
-    drawImage(image: Image, sx?: number, sy?: number, sWidth?: number, sHeight?: number, dx?: number, dy?: number, dWidth?: number, dHeight?: number): void
-    beginPath(): void
-    closePath(): void
-    stroke(): void
-    fill(): void
-    clip(): void
-    moveTo(x: number, y: number): void
-    lineTo(x: number, y: number): void
-    quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void
-    bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void
-    arc(x: number, y: number, radius: number, startAngle: number, endAngle: number): void
-    arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
-    isPointInPath(x: number, y: number): boolean
-    scale(x: number, y: number): void
-    rotate(angle: number): void
-    translate(x: number, y: number): void
-    transform(a: number, b: number, c: number, d: number, e: number, f: number): void
-    setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void
-    drawText(text: string, x: number, y: number, attrs: string): void
-    fillText(text: string, x: number, y: number, maxWidth: number): void
-    strokeText(text: string, x: number, y: number): void
-    measureText(text: string): Map<string, any>
-    save(): void
-    restore(): void
-    applyOriginTransform(): void
+  /**
+   * The color, gradient, or pattern to use inside shapes.
+   *
+   * @defaultValue `#000` (black)
+   * @example
+   * ```
+   * canvas.fillStyle = 'cyan' // Named colors
+   * canvas.fillStyle = '#0ff' // Hex colors
+   * canvas.fillStyle = 'rgb(0, 255, 255)' // RGB colors
+   * canvas.fillStyle = 'rgba(0, 255, 255, 1)' // RGBA colors
+   * canvas.fillStyle = (() => { // Gradient
+   *   const gradient = canvas.createLinearGradient(20, 70, 70, 70)
+   *   gradient.addColorStop(0, 'rgb(255,0,0)')
+   *   gradient.addColorStop(0.5, 'rgb(0,255,0)')
+   *   gradient.addColorStop(1, 'rgb(0,0,255)')
+   *   return gradient
+   * })()
+   * ```
+   */
+  fillStyle: string
+
+  /**
+   * The color, gradient, or pattern to use for the strokes (outlines) around shapes.
+   *
+   * @defaultValue `#000` (black)
+   */
+  strokeStyle: string
+
+  /**
+   * The color of shadows.
+   *
+   * @defaultValue `undefined`
+   */
+  shadowColor?: string
+
+  /**
+   * The amount of blur applied to shadows.
+   *
+   * @defaultValue `0` (no blur)
+   */
+  shadowBlur: number
+
+  /**
+   * The distance that shadows will be offset horizontally.
+   *
+   * @defaultValue `0` (no horizontal offset)
+   */
+  shadowOffsetX: number
+
+  /**
+   * The distance that shadows will be offset vertically..
+   *
+   * @defaultValue `0` (no vertical offset)
+   */
+  shadowOffsetY: number
+
+  /**
+   * The shape used to draw the end points of lines.
+   *
+   * @defaultValue `"butt"`
+   */
+  lineCap: 'butt' | 'round' | 'square'
+
+  /**
+   * The shape used to join two line segments where they meet.
+   *
+   * @defaultValue `"miter"`
+   */
+  lineJoin: 'bevel' | 'round' | 'miter'
+
+  /**
+   * The thickness of lines.
+   *
+   * @defaultValue `1.0`
+   */
+  lineWidth: number
+
+  /**
+   * The miter limit ratio.
+   *
+   * @defaultValue `0`
+   */
+  miterLimit: number
+
+  /**
+   * The alpha (transparency) value that is applied to shapes and images before they are drawn onto the canvas.
+   *
+   * @defaultValue `1.0`
+   */
+  globalAlpha: number
+
+  /**
+   * The type of compositing operation to apply when drawing new shapes.
+   *
+   * @defaultValue `"source-over"`
+   */
+  globalCompositeOperation: 'source-over' | 'source-atop' | 'source-in' | 'source-out' | 'destination-over' | 'destination-atop' | 'destination-in' | 'destination-out' | 'lighter' | 'copy' | 'xor'
+
+  /**
+   * The current line dash pattern.
+   *
+   * @defaultValue `[]`
+   */
+  lineDash: number[]
+
+  /**
+   * The current text style to use when drawing text. This string uses the same syntax as the CSS font specifier.
+   *
+   * @defaultValue `"12pt Helvetica"`
+   */
+  font: string
+
+  /**
+   * The current text alignment used when drawing text.
+   *
+   * @defaultValue `"left"`
+   */
+  textAlign: 'left' | 'right' | 'center' | 'start' | 'end'
+
+  /**
+   * The current text baseline used when drawing text.
+   *
+   * @defaultValue `undefined`
+   */
+  textbaseLine?: 'top' | 'middle' | 'alphabetic' | 'bottom'
+
+  /**
+   * @internal
+   * @defaultValue `undefined`
+   */
+  fontName?: string
+
+  /**
+   * @internal
+   * @defaultValue `undefined`
+   */
+  fontSize?: number
+  
+  /**
+   * A drawing context on the canvas.
+   *
+   * Contrary to DOM API, `Context` object is identical to `Canvas` object.
+   * It always returns itself.
+   */
+  getContext(): this
+
+  /**
+   * Adds a rectangle to the current path.
+   *
+   * Like other methods that modify the current path, this method does not directly render anything.
+   * To draw the rectangle onto a canvas, you can use the `fill()` or `stroke()` methods.
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(100, 100)
+   * canvas.rect(0, 0, 50, 50)
+   * canvas.fillStyle = 'green'
+   * canvas.fill()
+   * const output = new Output(canvas, 'rect.png')
+   * output.addToQueue()
+   * ```
+   */
+  rect(x: number, y: number, width: number, height: number): void
+
+  /**
+   * Draws a rectangle that is filled according to the current `fillStyle`.
+   */
+  fillRect(x: number, y: number, width: number, height: number): void
+
+  /**
+   * Draws a rectangle that is stroked (outlined) according to the current `strokeStyle` and other context settings.
+   */
+  strokeRect(x: number, y: number, width: number, height: number): void
+
+  /**
+   * Erases the pixels in a rectangular area by setting them to transparent black.
+   */
+  clearRect(x: number, y: number, width: number, height: number): void
+
+  /**
+   * Creates a gradient along the line connecting two given coordinates.
+   */
+  createLinearGradient(x0: number, y0: number, x1: number, y1: number): Gradient
+  createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): Gradient
+  createPattern(image: Image, style: 'repeat' | 'repeat-x' | 'repeat-y' | 'no-repeat'): PatternObject
+  drawImage(image: Image, dx: number, dy: number): void
+  drawImage(image: Image, dx: number, dy: number, dWidth: number, dHeight: number): void
+  drawImage(image: Image, sx?: number, sy?: number, sWidth?: number, sHeight?: number, dx?: number, dy?: number, dWidth?: number, dHeight?: number): void
+  beginPath(): void
+  closePath(): void
+  stroke(): void
+  fill(): void
+  clip(): void
+  moveTo(x: number, y: number): void
+  lineTo(x: number, y: number): void
+  quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void
+  bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void
+  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number): void
+  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
+  isPointInPath(x: number, y: number): boolean
+  scale(x: number, y: number): void
+  rotate(angle: number): void
+  translate(x: number, y: number): void
+  transform(a: number, b: number, c: number, d: number, e: number, f: number): void
+  setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void
+  drawText(text: string, x: number, y: number, attrs: string): void
+  fillText(text: string, x: number, y: number, maxWidth: number): void
+  strokeText(text: string, x: number, y: number): void
+  measureText(text: string): Map<string, any>
+  save(): void
+  restore(): void
+  applyOriginTransform(): void
 }
 
 class Image {
-    /**
-     * Name of image.
-     */
-    readonly name: string
+  /**
+   * Name of image.
+   */
+  readonly name: string
 
-    /**
-     * Size of image (pixels).
-     */
-    readonly size: SizeObject
+  /**
+   * Size of image (pixels).
+   */
+  readonly size: SizeObject
 
-    /**
-     * @internal
-     */
-    readonly aspectRatio: number
+  /**
+   * @internal
+   */
+  readonly aspectRatio: number
 
-    /**
-     * Image properties.
-     */
-    properties: any[]
+  /**
+   * Image properties.
+   */
+  properties: any[]
 
-    /**
-     * @internal
-     */
-    modifiedProperties: string[]
+  /**
+   * @internal
+   */
+  modifiedProperties: string[]
 
-    /**
-     * Return the image property for name, if any.
-     */
-    getProperty(key: string): any
+  /**
+   * Return the image property for name, if any.
+   */
+  getProperty(key: string): any
 
-    /**
-     * @internal
-     */
-    setProperty(key: string, value: any): void
+  /**
+   * @internal
+   */
+  setProperty(key: string, value: any): void
 
-    /**
-     * @internal
-     */
-    scaledSizeWithLongestEdge(longestEdge: number): SizeObject
+  /**
+   * @internal
+   */
+  scaledSizeWithLongestEdge(longestEdge: number): SizeObject
 
-    /**
-     * Return the size that will contain the image with the longest edge set to length.
-     * Maintains aspect ratio.
-     */
-    sizeToFitLongestEdge(length: number): SizeObject
+  /**
+   * Return the size that will contain the image with the longest edge set to length.
+   * Maintains aspect ratio.
+   */
+  sizeToFitLongestEdge(length: number): SizeObject
 
-    /**
-     * @internal
-     */
-    keysInPath(path: string): string[]
+  /**
+   * @internal
+   */
+  keysInPath(path: string): string[]
 }
 
 class Gradient {
-    type: number
-    startPt: PointObject
-    endPt: PointObject
-    startRadius: number
-    endRadius: number
-    stops: any[]
+  type: number
+  startPt: PointObject
+  endPt: PointObject
+  startRadius: number
+  endRadius: number
+  stops: any[]
 
-    addColorStop(offset: number, color: string): void
+  addColorStop(offset: number, color: string): void
 }
 
 class PatternObject {
-    image: Image
-    style: unknown
+  image: Image
+  style: unknown
 }
 
 class RectObject { 
-    constructor(x: number, y: number, width: number, height: number)
+  constructor(x: number, y: number, width: number, height: number)
 
-    origin: PointObject
-    size: SizeObject
-    x: number
-    y: number
-    width: number
-    height: number
+  origin: PointObject
+  size: SizeObject
+  x: number
+  y: number
+  width: number
+  height: number
 }
 
 class PointObject {
-    width: number
-    height: number
+  width: number
+  height: number
 }
 
 class SizeObject {
-    x: number
-    y: number
+  x: number
+  y: number
 }
 
 class Output {
-    /**
-     * Output the context to disk with name and optional type (extension or UTI).
-     */
-    constructor(context: Canvas, name: string)
-    constructor(context: Canvas, name: string, type?: string)
+  /**
+   * Output the context to disk with name and optional type (extension or UTI).
+   */
+  constructor(context: Canvas, name: string)
+  constructor(context: Canvas, name: string, type?: string)
 
-    /**
-     * @internal
-     */
-    canvas: Canvas
+  /**
+   * @internal
+   */
+  canvas: Canvas
 
-    /**
-     * @internal
-     */
-    name: string
+  /**
+   * @internal
+   */
+  name: string
 
-    /**
-     * @internal
-     */
-    image: Image
+  /**
+   * @internal
+   */
+  image: Image
 
-    /**
-     * @internal
-     */
-    readonly outputDir: string
+  /**
+   * @internal
+   */
+  readonly outputDir: string
 
-    /**
-     * Adds the output to the queue to be written to disk.
-     */
-    addToQueue(): void
+  /**
+   * Adds the output to the queue to be written to disk.
+   */
+  addToQueue(): void
 
-    /**
-     * @internal
-     */
-    write(): void
+  /**
+   * @internal
+   */
+  write(): void
 }
 
 class Configuration {
-    /**
-     * Arguments passed into the program as an array of strings.
-     */
-    arguments: string[]
+  /**
+   * Arguments passed into the program as an array of strings.
+   */
+  arguments: string[]
 
-    /**
-     * Valid images passed as arguments converted into an array of Image objects.
-     */
-    images: Image[]
+  /**
+   * Valid images passed as arguments converted into an array of Image objects.
+   */
+  images: Image[]
 
-    /**
-     * Recommended size for output. Setting the crop or resample flags will set this value.
-     */
-    size: SizeObject
+  /**
+   * Recommended size for output. Setting the crop or resample flags will set this value.
+   */
+  size: SizeObject
 
-    /**
-     * If specified, the value of the -Z/--resampleHeightWidthMax option. [default: 0]
-     *
-     * @defaultValue 0
-     */
-    longestEdge: number
+  /**
+   * If specified, the value of the -Z/--resampleHeightWidthMax option. [default: 0]
+   *
+   * @defaultValue 0
+   */
+  longestEdge: number
 
-    /**
-     * Output directory
-     *
-     * @defaultValue currentDirectory
-     */
-    outputPath: string
+  /**
+   * Output directory
+   *
+   * @defaultValue currentDirectory
+   */
+  outputPath: string
 
-    /**
-     * @internal
-     */
-    outputDir: string
+  /**
+   * @internal
+   */
+  outputDir: string
 
-    /**
-     * @internal
-     */
-    requestedSizeForSize(size: SizeObject): SizeObject
+  /**
+   * @internal
+   */
+  requestedSizeForSize(size: SizeObject): SizeObject
 }
 
 class Console {
-    /**
-     * @internal
-     */
-    handler: unknown
+  /**
+   * @internal
+   */
+  handler: unknown
 
-    /**
-    * Output to standard output.
-    */
-    log(str: string): void
+  /**
+  * Output to standard output.
+  */
+  log(str: string): void
 }
 
 var sips: Configuration
