@@ -1,4 +1,10 @@
 class Canvas {
+    /**
+     * Initialize Canvas object.
+     *
+     * @param width - unsigned integer
+     * @param height - unsigned integer
+     */
     constructor(width: number, height: number)
 
     fillStyle: string
@@ -58,16 +64,55 @@ class Canvas {
 }
 
 class Image {
+    /**
+     * Name of image.
+     */
     readonly name: string
+
+    /**
+     * Size of image (pixels).
+     */
     readonly size: SizeObject
+
+    /**
+     * @internal
+     */
     readonly aspectRatio: number
+
+    /**
+     * Image properties.
+     */
     properties: any[]
+
+    /**
+     * @internal
+     */
     modifiedProperties: string[]
 
+    /**
+     * Return the image property for name, if any.
+     */
     getProperty(key: string): any
+
+    /**
+     * @internal
+     */
     setProperty(key: string, value: any): void
+
+    /**
+     * @internal
+     */
     scaledSizeWithLongestEdge(longestEdge: number): SizeObject
-    sizeToFitLongestEdge(longestEdge: number): SizeObject
+
+    /**
+     * Return the size that will contain the image with the longest edge set to length.
+     * Maintains aspect ratio.
+     */
+    sizeToFitLongestEdge(length: number): SizeObject
+
+    /**
+     * @internal
+     */
     keysInPath(path: string): string[]
 }
 
@@ -109,33 +154,99 @@ class SizeObject {
 }
 
 class Output {
+    /**
+     * Output the context to disk with name and optional type (extension or UTI).
+     */
     constructor(context: Canvas, name: string)
     constructor(context: Canvas, name: string, type?: string)
 
+    /**
+     * @internal
+     */
     canvas: Canvas
+
+    /**
+     * @internal
+     */
     name: string
+
+    /**
+     * @internal
+     */
     image: Image
+
+    /**
+     * @internal
+     */
     readonly outputDir: string
 
+    /**
+     * Adds the output to the queue to be written to disk.
+     */
     addToQueue(): void
+
+    /**
+     * @internal
+     */
     write(): void
 }
 
 class Configuration {
+    /**
+     * Arguments passed into the program as an array of strings.
+     */
     arguments: string[]
+
+    /**
+     * Valid images passed as arguments converted into an array of Image objects.
+     */
     images: Image[]
+
+    /**
+     * Recommended size for output. Setting the crop or resample flags will set this value.
+     */
     size: SizeObject
+
+    /**
+     * If specified, the value of the -Z/--resampleHeightWidthMax option. [default: 0]
+     *
+     * @defaultValue 0
+     */
     longestEdge: number
-    outputDir: string
+
+    /**
+     * Output directory
+     *
+     * @defaultValue currentDirectory
+     */
     outputPath: string
 
+    /**
+     * @internal
+     */
+    outputDir: string
+
+    /**
+     * @internal
+     */
     requestedSizeForSize(size: SizeObject): SizeObject
 }
 
 class Console {
+    /**
+     * @internal
+     */
     handler: unknown
 
-    log(text: string): void
+    /**
+    * Output to standard output.
+    */
+    log(str: string): void
 }
 
 var sips: Configuration
+
+/**
+ * Output to standard output. Equivalent to console.log(str).
+ */
+function print(str: string): void
