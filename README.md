@@ -2,13 +2,13 @@
 
 An unofficial documentation of `sips`'s JavaScript API.
 
-## What's `sips`?
+## What's sips?
 
 If you are using macOS, you already have it in `/usr/bin/sips`.
 
 `sips` is a command-line image processing tool bundled in macOS.
 
-## What's JavaScript interface of `sips`?
+## What's JavaScript interface of sips?
 
 Since Big Sur, `sips` has been shipped with the new feature *JavaScript interface*, that makes `sips` the most powerful ever.
 Like ImageMagick, `sips` can compose an arbitrary images as you like, with JavaScript.
