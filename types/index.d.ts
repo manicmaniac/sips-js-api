@@ -190,19 +190,86 @@ class Canvas {
    * Creates a gradient along the line connecting two given coordinates.
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): Gradient
+
+  /**
+   * Creates a radial gradient using the size and coordinates of two circles.
+   */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): Gradient
+
+  /**
+   * Creates a pattern using the specified image and repetition.
+   *
+   * This method works but it seems that the use of `PatternObject` is still in-development.
+   * Neither of `fillStyle` and `strokeStyle` accept `PatternObject` as a value.
+   */
   createPattern(image: Image, style: 'repeat' | 'repeat-x' | 'repeat-y' | 'no-repeat'): PatternObject
+
+  /**
+   * Provides different ways to draw an image onto the canvas.
+   *
+   * @example
+   * ```
+   * // sips -j draw.js image.png
+   * const canvas = new Canvas(100, 100)
+   * canvas.drawImage(sips.images.pop())
+   * const output = new Output(canvas, 'draw.png')
+   * output.addToQueue()
+   * ```
+   */
   drawImage(image: Image, dx: number, dy: number): void
   drawImage(image: Image, dx: number, dy: number, dWidth: number, dHeight: number): void
   drawImage(image: Image, sx?: number, sy?: number, sWidth?: number, sHeight?: number, dx?: number, dy?: number, dWidth?: number, dHeight?: number): void
+
+  /**
+   * Starts a new path by emptying the list of sub-paths.
+   * Call this method when you want to create a new path.
+   */
   beginPath(): void
+
+  /**
+   * Attempts to add a straight line from the current point to the start of the current sub-path.
+   * If the shape has already been closed or has only one point, this function does nothing.
+   */
   closePath(): void
+
+  /**
+   * Strokes (outlines) the current or given path with the current `strokeStyle`.
+   */
   stroke(): void
+
+  /**
+   * Fills the current or given path with the current `fillStyle`.
+   */
   fill(): void
+
+  /**
+   * Turns the current or given path into the current clipping region.
+   * The previous clipping region, if any, is intersected with the current or given path to create the new clipping region.
+   */
   clip(): void
+
+  /**
+   * Begins a new sub-path at the point specified by the given `(x, y)` coordinates.
+   */
   moveTo(x: number, y: number): void
+
+  /**
+   * Adds a straight line to the current sub-path by connecting the sub-path's last point to the specified `(x, y)` coordinates.
+   */
   lineTo(x: number, y: number): void
+
+  /**
+   * Adds a quadratic Bézier curve to the current sub-path.
+   * It requires two points: the first one is a control point and the second one is the end point.
+   * The starting point is the latest point in the current path, which can be changed using `moveTo()` before creating the quadratic Bézier curve.
+   */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void
+
+  /**
+   * Adds a cubic Bézier curve to the current sub-path.
+   * It requires three points: the first two are control points and the third one is the end point.
+   * The starting point is the latest point in the current path, which can be changed using `moveTo()` before creating the Bézier curve.
+   */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number): void
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
@@ -240,12 +307,12 @@ class Image {
   /**
    * Image properties.
    */
-  properties: any[]
+  properties: Map<string, any>
 
   /**
    * @internal
    */
-  modifiedProperties: string[]
+  modifiedProperties?: unknown
 
   /**
    * Return the image property for name, if any.
@@ -267,26 +334,63 @@ class Image {
    * Maintains aspect ratio.
    */
   sizeToFitLongestEdge(length: number): SizeObject
+}
+
+class Gradient {
+  /**
+   * @internal
+   */
+  type: number
 
   /**
    * @internal
    */
-  keysInPath(path: string): string[]
-}
-
-class Gradient {
-  type: number
   startPt: PointObject
+
+  /**
+   * @internal
+   */
   endPt: PointObject
+
+  /**
+   * @internal
+   */
   startRadius: number
+
+  /**
+   * @internal
+   */
   endRadius: number
-  stops: any[]
+
+  /**
+   * @internal
+   */
+  stops: GradientStop[]
 
   addColorStop(offset: number, color: string): void
 }
 
+class GradientStop {
+  /**
+   * @internal
+   */
+  location: number
+
+  /**
+   * @internal
+   */
+  colorStyle: string
+}
+
 class PatternObject {
+  /**
+   * @internal
+   */
   image: Image
+
+  /**
+   * @internal
+   */
   style: unknown
 }
 
