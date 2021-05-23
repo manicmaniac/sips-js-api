@@ -1,0 +1,17 @@
+{
+  "name": "sips-js-api",
+  "version": "1.0.0",
+  "description": "Pretty document generator for macOS sips(1) JavaScript interface",
+  "private": true,
+  "scripts": {
+    "build": "typedoc"
+  },
+  "keywords": [],
+  "author": "Ryosuke Ito <rito.0305@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "typedoc": "^0.20.36",
+    "typescript": "^4.2.4"
+  }
+}

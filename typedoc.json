@@ -1,0 +1,3 @@
+{
+  "entryPoints": ["./types/index.d.ts"]
+}
