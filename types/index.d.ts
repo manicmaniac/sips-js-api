@@ -419,7 +419,7 @@ class Canvas {
   restore(): void
 }
 
-class Image {
+interface Image {
   /**
    * Name of image.
    */
@@ -467,7 +467,7 @@ class Image {
   sizeToFitLongestEdge(length: number): SizeObject
 }
 
-class Gradient {
+interface Gradient {
   /**
    * Adds a new color stop, defined by an `offset` and a `color`, to a given canvas gradient.
    *
@@ -477,7 +477,7 @@ class Gradient {
   addColorStop(offset: number, color: string): void
 }
 
-class PatternObject {
+interface PatternObject {
   /**
    * @internal
    */
@@ -489,7 +489,7 @@ class PatternObject {
   style: unknown
 }
 
-class SizeObject {
+interface SizeObject {
   x: number
   y: number
 }
@@ -517,7 +517,7 @@ class Output {
   addToQueue(): void
 }
 
-class Configuration {
+interface Configuration {
   /**
    * Arguments passed into the program as an array of strings.
    */
@@ -554,7 +554,7 @@ class Configuration {
   requestedSizeForSize(size: SizeObject): SizeObject
 }
 
-class Console {
+interface Console {
   /**
    * Output to standard output.
    *

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Gradient | sips-js-api</title>
+	<title>SizeObject | sips-js-api</title>
 	<meta name="description" content="Documentation for sips-js-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">sips-js-api</a>
 				</li>
 				<li>
-					<a href="gradient.html">Gradient</a>
+					<a href="sizeobject.html">SizeObject</a>
 				</li>
 			</ul>
-			<h1>Class Gradient</h1>
+			<h1>Interface SizeObject</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Gradient</span>
+						<span class="target">SizeObject</span>
 					</li>
 				</ul>
 			</section>
@@ -78,75 +78,36 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="gradient.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Methods</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gradient.html#addcolorstop" class="tsd-kind-icon">add<wbr>Color<wbr>Stop</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sizeobject.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sizeobject.html#y" class="tsd-kind-icon">y</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Gradient<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gradient.html" class="tsd-signature-type" data-tsd-kind="Class">Gradient</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="gradient.html" class="tsd-signature-type" data-tsd-kind="Class">Gradient</a></h4>
-						</li>
-					</ul>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="x" class="tsd-anchor"></a>
+					<h3>x</h3>
+					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L493">index.d.ts:493</a></li>
+						</ul>
+					</aside>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="addcolorstop" class="tsd-anchor"></a>
-					<h3>add<wbr>Color<wbr>Stop</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Color<wbr>Stop<span class="tsd-signature-symbol">(</span>offset<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, color<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/373d208/types/index.d.ts#L477">index.d.ts:477</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Adds a new color stop, defined by an <code>offset</code> and a <code>color</code>, to a given canvas gradient.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>offset: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>A number between 0 and 1, inclusive, representing the position of the color stop. 0 represents the start of the gradient and 1 represents the end.</p>
-									</div>
-								</li>
-								<li>
-									<h5>color: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>A CSS color value representing the color of the stop.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="y" class="tsd-anchor"></a>
+					<h3>y</h3>
+					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L494">index.d.ts:494</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -161,41 +122,41 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="canvas.html" class="tsd-kind-icon">Canvas</a>
+						<a href="../classes/canvas.html" class="tsd-kind-icon">Canvas</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="../classes/output.html" class="tsd-kind-icon">Output</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="configuration.html" class="tsd-kind-icon">Configuration</a>
 					</li>
-					<li class=" tsd-kind-class">
+					<li class=" tsd-kind-interface">
 						<a href="console.html" class="tsd-kind-icon">Console</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="gradient.html" class="tsd-kind-icon">Gradient</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="image.html" class="tsd-kind-icon">Image</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="patternobject.html" class="tsd-kind-icon">Pattern<wbr>Object</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="gradient.html" class="tsd-kind-icon">Gradient</a>
+					<li class="current tsd-kind-interface">
+						<a href="sizeobject.html" class="tsd-kind-icon">Size<wbr>Object</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="gradient.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sizeobject.html#x" class="tsd-kind-icon">x</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="gradient.html#addcolorstop" class="tsd-kind-icon">add<wbr>Color<wbr>Stop</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sizeobject.html#y" class="tsd-kind-icon">y</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="image.html" class="tsd-kind-icon">Image</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="output.html" class="tsd-kind-icon">Output</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="patternobject.html" class="tsd-kind-icon">Pattern<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="sizeobject.html" class="tsd-kind-icon">Size<wbr>Object</a>
-					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../modules.html#console" class="tsd-kind-icon">console</a>
 					</li>
@@ -218,6 +179,10 @@
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 		</div>
 	</div>
