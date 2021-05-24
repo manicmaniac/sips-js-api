@@ -274,16 +274,75 @@ class Canvas {
    * The starting point is the latest point in the current path, which can be changed using `moveTo()` before creating the Bézier curve.
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void
+
+  /**
+   * Adds a circular arc to the current sub-path.
+   */
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number): void
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
+
+  /**
+   * Reports whether or not the specified point is contained in the current path.
+   */
   isPointInPath(x: number, y: number): boolean
+
+  /**
+   * Adds a scaling transformation to the canvas units horizontally and/or vertically.
+   */
   scale(x: number, y: number): void
+
+  /**
+   * Adds a rotation to the transformation matrix.
+   */
   rotate(angle: number): void
+
+  /**
+   * Adds a translation transformation to the current matrix.
+   */
   translate(x: number, y: number): void
+
+  /**
+   * Multiplies the current transformation with the matrix described by the arguments of this method. This lets you scale, rotate, translate (move), and skew the context.
+   *
+   * The transformation matrix is described by:
+   *
+   * ```
+   * [ a c e
+   *   b d f
+   *   0 0 1 ]
+   * ```
+   */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void
+
+  /**
+   * Resets (overrides) the current transformation to the identity matrix, and then invokes a transformation described by the arguments of this method.
+   * This lets you scale, rotate, translate (move), and skew the context.
+   *
+   * ```
+   * [ a c e
+   *   b d f
+   *   0 0 1 ]
+   * ```
+   */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void
-  drawText(text: string, x: number, y: number, attrs: string): void
-  fillText(text: string, x: number, y: number, maxWidth: number): void
+
+  /**
+   * Draws a text string at the specified coordinates, filling the string's characters with the current fillStyle.
+   * An optional parameter allows specifying a maximum width for the rendered text, which the user agent will achieve by condensing the text or by using a lower font size.
+   *
+   * @param text - The text string to render into canvas.
+   * @param x - The x-axis coordinate of the point at which to begin drawing text, in pixels.
+   * @param y - The y-axis coordinate of the point at which to begin drawing text, in pixels.
+   * @param maxWidth - The maximum number of pixels wide the text may be once rendered.
+   *
+   * @example
+   * ```
+   * canvas.font = '42pt Futura'
+   * canvas.fillStyle = 'blue'
+   * canvas.fillText('Hello', 0, 42)
+   * ```
+   */
+  fillText(text: string, x: number, y: number, maxWidth?: number): void
   strokeText(text: string, x: number, y: number): void
   measureText(text: string): Map<string, any>
   save(): void
