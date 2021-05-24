@@ -7,7 +7,16 @@ class Canvas {
    */
   constructor(width: number, height: number)
 
+  /**
+   * The width of the canvas.
+   * Assigning to this property causes nothing.
+   */
   readonly width: number
+
+  /**
+   * The height of the canvas.
+   * Assigning to this property causes nothing.
+   */
   readonly height: number
 
   /**
@@ -137,18 +146,6 @@ class Canvas {
   textbaseLine?: 'top' | 'middle' | 'alphabetic' | 'bottom'
 
   /**
-   * @internal
-   * @defaultValue `undefined`
-   */
-  fontName?: string
-
-  /**
-   * @internal
-   * @defaultValue `undefined`
-   */
-  fontSize?: number
-  
-  /**
    * A drawing context on the canvas.
    *
    * Contrary to DOM API, `Context` object is identical to `Canvas` object.
@@ -191,11 +188,49 @@ class Canvas {
 
   /**
    * Creates a gradient along the line connecting two given coordinates.
+   *
+   * @param x0 - The x-axis coordinate of the start point.
+   * @param y0 - The y-axis coordinate of the start point.
+   * @param x1 - The x-axis coordinate of the end point.
+   * @param y1 - The y-axis coordinate of the end point.
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(150, 150)
+   * const gradient = canvas.createLinearGradient(0, 0, 150, 150)
+   * gradient.addColorStop(0, 'red')
+   * gradient.addColorStop(0.5, 'green')
+   * gradient.addColorStop(1, 'blue')
+   * canvas.fillStyle = gradient
+   * canvas.fillRect(0, 0, 150, 150)
+   * const output = new Output(canvas, 'linearGradient.png')
+   * output.addToQueue()
+   * ```
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): Gradient
 
   /**
    * Creates a radial gradient using the size and coordinates of two circles.
+   *
+   * @param x0 - The x-axis coordinate of the start circle.
+   * @param y0 - The y-axis coordinate of the start circle.
+   * @param r0 - The radius of the start circle. Must be non-negative and finite.
+   * @param x1 - The x-axis coordinate of the end circle.
+   * @param y1 - The y-axis coordinate of the end circle.
+   * @param r1 - The radius of the end circle. Must be non-negative and finite.
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(150, 150)
+   * const gradient = canvas.createRadialGradient(75, 75, 10, 75, 75, 150)
+   * gradient.addColorStop(0, 'red')
+   * gradient.addColorStop(0.5, 'green')
+   * gradient.addColorStop(1, 'blue')
+   * canvas.fillStyle = gradient
+   * canvas.fillRect(0, 0, 150, 150)
+   * const output = new Output(canvas, 'radialGradient.png')
+   * output.addToQueue()
+   * ```
    */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): Gradient
 
@@ -278,7 +313,6 @@ class Canvas {
   /**
    * Adds a circular arc to the current sub-path.
    */
-  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number): void
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
 
   /**
@@ -337,17 +371,52 @@ class Canvas {
    *
    * @example
    * ```
+   * const canvas = new Canvas(100, 50)
    * canvas.font = '42pt Futura'
    * canvas.fillStyle = 'blue'
    * canvas.fillText('Hello', 0, 42)
+   * const output = new Output(canvas, 'fillText.png')
+   * output.addToQueue()
    * ```
    */
   fillText(text: string, x: number, y: number, maxWidth?: number): void
+
+  /**
+   * Draws the outlines of the characters of a text string at the specified coordinates.
+   *
+   * @param text - The text string to render into canvas.
+   * @param x - The x-axis coordinate of the point at which to begin drawing text, in pixels.
+   * @param y - The y-axis coordinate of the point at which to begin drawing text, in pixels.
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(100, 50)
+   * canvas.font = '42pt Futura'
+   * canvas.strokeStyle = 'blue'
+   * canvas.strokeText('Hello', 0, 42)
+   * const output = new Output(canvas, 'strokeText.png')
+   * output.addToQueue()
+   * ```
+   */
   strokeText(text: string, x: number, y: number): void
-  measureText(text: string): Map<string, any>
+
+  /**
+   * Returns an object that contains size information about the measured text.
+   *
+   * @param text - The text string to measure.
+   */
+  measureText(text: string): SizeObject
+
+  /**
+   * Saves the entire state of the canvas by pushing the current state onto a stack.
+   */
   save(): void
+
+  /**
+   * Restores the most recently saved canvas state by popping the top entry in the drawing state stack.
+   * If there is no saved state, this method does nothing.
+   */
   restore(): void
-  applyOriginTransform(): void
 }
 
 class Image {
@@ -400,48 +469,12 @@ class Image {
 
 class Gradient {
   /**
-   * @internal
+   * Adds a new color stop, defined by an `offset` and a `color`, to a given canvas gradient.
+   *
+   * @param offset - A number between 0 and 1, inclusive, representing the position of the color stop. 0 represents the start of the gradient and 1 represents the end.
+   * @param color - A CSS color value representing the color of the stop.
    */
-  type: number
-
-  /**
-   * @internal
-   */
-  startPt: PointObject
-
-  /**
-   * @internal
-   */
-  endPt: PointObject
-
-  /**
-   * @internal
-   */
-  startRadius: number
-
-  /**
-   * @internal
-   */
-  endRadius: number
-
-  /**
-   * @internal
-   */
-  stops: GradientStop[]
-
   addColorStop(offset: number, color: string): void
-}
-
-class GradientStop {
-  /**
-   * @internal
-   */
-  location: number
-
-  /**
-   * @internal
-   */
-  colorStyle: string
 }
 
 class PatternObject {
@@ -454,22 +487,6 @@ class PatternObject {
    * @internal
    */
   style: unknown
-}
-
-class RectObject { 
-  constructor(x: number, y: number, width: number, height: number)
-
-  origin: PointObject
-  size: SizeObject
-  x: number
-  y: number
-  width: number
-  height: number
-}
-
-class PointObject {
-  width: number
-  height: number
 }
 
 class SizeObject {
@@ -495,24 +512,9 @@ class Output {
   name: string
 
   /**
-   * @internal
-   */
-  image: Image
-
-  /**
-   * @internal
-   */
-  readonly outputDir: string
-
-  /**
    * Adds the output to the queue to be written to disk.
    */
   addToQueue(): void
-
-  /**
-   * @internal
-   */
-  write(): void
 }
 
 class Configuration {
@@ -523,32 +525,28 @@ class Configuration {
 
   /**
    * Valid images passed as arguments converted into an array of Image objects.
+   * Assigning to this property causes nothing.
    */
-  images: Image[]
+  readonly images: Image[]
 
   /**
    * Recommended size for output. Setting the crop or resample flags will set this value.
+   * Assigning to this property causes nothing.
    */
-  size: SizeObject
+  readonly size: SizeObject
 
   /**
    * If specified, the value of the -Z/--resampleHeightWidthMax option. [default: 0]
-   *
-   * @defaultValue 0
+   * Assigning to this property causes nothing.
    */
-  longestEdge: number
+  readonly longestEdge: number
 
   /**
-   * Output directory
+   * The full path of the output directory specified with `-o` or `--out` option.
    *
-   * @defaultValue currentDirectory
+   * @defaultValue undefined
    */
   outputPath: string
-
-  /**
-   * @internal
-   */
-  outputDir: string
 
   /**
    * @internal
@@ -558,19 +556,19 @@ class Configuration {
 
 class Console {
   /**
-   * @internal
+   * Output to standard output.
+   *
+   * @param str - The text string to write to standard output.
    */
-  handler: unknown
-
-  /**
-  * Output to standard output.
-  */
   log(str: string): void
 }
 
 var sips: Configuration
+var console: Console
 
 /**
  * Output to standard output. Equivalent to console.log(str).
+ *
+ * @param str - The text string to write to standard output.
  */
 function print(str: string): void
