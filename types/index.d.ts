@@ -7,6 +7,9 @@ class Canvas {
    */
   constructor(width: number, height: number)
 
+  readonly width: number
+  readonly height: number
+
   /**
    * The color, gradient, or pattern to use inside shapes.
    *
