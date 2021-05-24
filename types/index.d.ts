@@ -139,9 +139,9 @@ class Canvas {
   /**
    * The current text baseline used when drawing text.
    *
-   * @defaultValue `undefined`
+   * @defaultValue `"alphabetic"`
    */
-  textbaseLine?: 'top' | 'middle' | 'alphabetic' | 'bottom'
+  textBaseline: 'top' | 'middle' | 'alphabetic' | 'bottom'
 
   /**
    * A drawing context on the canvas.
