@@ -1,3 +1,4 @@
 {
-  "entryPoints": ["./types/index.d.ts", "README.md"]
+  "entryPoints": ["./types/index.d.ts"],
+  "readme": "README.md"
 }
