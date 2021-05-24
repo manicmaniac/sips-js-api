@@ -115,6 +115,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#clearrect" class="tsd-kind-icon">clear<wbr>Rect</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#clip" class="tsd-kind-icon">clip</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#closepath" class="tsd-kind-icon">close<wbr>Path</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#createimagedata" class="tsd-kind-icon">create<wbr>Image<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#createlineargradient" class="tsd-kind-icon">create<wbr>Linear<wbr>Gradient</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#createpattern" class="tsd-kind-icon">create<wbr>Pattern</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#createradialgradient" class="tsd-kind-icon">create<wbr>Radial<wbr>Gradient</a></li>
@@ -123,10 +124,12 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#fillrect" class="tsd-kind-icon">fill<wbr>Rect</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#filltext" class="tsd-kind-icon">fill<wbr>Text</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#getcontext" class="tsd-kind-icon">get<wbr>Context</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#getimagedata" class="tsd-kind-icon">get<wbr>Image<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#ispointinpath" class="tsd-kind-icon">is<wbr>Point<wbr>InPath</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#lineto" class="tsd-kind-icon">line<wbr>To</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#measuretext" class="tsd-kind-icon">measure<wbr>Text</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#moveto" class="tsd-kind-icon">move<wbr>To</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#putimagedata" class="tsd-kind-icon">put<wbr>Image<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#quadraticcurveto" class="tsd-kind-icon">quadratic<wbr>Curve<wbr>To</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#rect" class="tsd-kind-icon">rect</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="canvas.html#restore" class="tsd-kind-icon">restore</a></li>
@@ -156,7 +159,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L1">index.d.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L1">index.d.ts:1</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -169,13 +172,13 @@
 								<li>
 									<h5>width: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>unsigned integer</p>
+										<p>A width of the canvas. Must be positive. Float value will be truncated to integer.</p>
 									</div>
 								</li>
 								<li>
 									<h5>height: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>unsigned integer</p>
+										<p>A height of the canvas. Must be positive. Float value will be truncated to integer.</p>
 									</div>
 								</li>
 							</ul>
@@ -192,7 +195,7 @@
 					<div class="tsd-signature tsd-kind-icon">fill<wbr>Style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L41">index.d.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L39">index.d.ts:39</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -226,7 +229,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L132">index.d.ts:132</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L130">index.d.ts:130</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -246,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">global<wbr>Alpha<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L111">index.d.ts:111</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L109">index.d.ts:109</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -266,7 +269,7 @@
 					<div class="tsd-signature tsd-kind-icon">global<wbr>Composite<wbr>Operation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;source-over&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;source-atop&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;source-in&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;source-out&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;destination-over&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;destination-atop&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;destination-in&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;destination-out&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;lighter&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;copy&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;xor&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L118">index.d.ts:118</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L116">index.d.ts:116</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -286,13 +289,12 @@
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L20">index.d.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L18">index.d.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The height of the canvas.
-							Assigning to this property causes nothing.</p>
+							<p>The height of the canvas.</p>
 						</div>
 					</div>
 				</section>
@@ -302,7 +304,7 @@
 					<div class="tsd-signature tsd-kind-icon">line<wbr>Cap<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;butt&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;round&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;square&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L83">index.d.ts:83</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L81">index.d.ts:81</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -322,7 +324,7 @@
 					<div class="tsd-signature tsd-kind-icon">line<wbr>Dash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L125">index.d.ts:125</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L123">index.d.ts:123</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -342,7 +344,7 @@
 					<div class="tsd-signature tsd-kind-icon">line<wbr>Join<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;round&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;bevel&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;miter&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L90">index.d.ts:90</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L88">index.d.ts:88</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -362,7 +364,7 @@
 					<div class="tsd-signature tsd-kind-icon">line<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L97">index.d.ts:97</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L95">index.d.ts:95</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -382,7 +384,7 @@
 					<div class="tsd-signature tsd-kind-icon">miter<wbr>Limit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L104">index.d.ts:104</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L102">index.d.ts:102</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -402,7 +404,7 @@
 					<div class="tsd-signature tsd-kind-icon">shadow<wbr>Blur<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L62">index.d.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L60">index.d.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -422,7 +424,7 @@
 					<div class="tsd-signature tsd-kind-icon">shadow<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L55">index.d.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L53">index.d.ts:53</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -442,7 +444,7 @@
 					<div class="tsd-signature tsd-kind-icon">shadow<wbr>OffsetX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L69">index.d.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L67">index.d.ts:67</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -462,7 +464,7 @@
 					<div class="tsd-signature tsd-kind-icon">shadow<wbr>OffsetY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L76">index.d.ts:76</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L74">index.d.ts:74</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -482,7 +484,7 @@
 					<div class="tsd-signature tsd-kind-icon">stroke<wbr>Style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L48">index.d.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L46">index.d.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -502,7 +504,7 @@
 					<div class="tsd-signature tsd-kind-icon">text<wbr>Align<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;left&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;right&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;center&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;start&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;end&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L139">index.d.ts:139</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L137">index.d.ts:137</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -522,7 +524,7 @@
 					<div class="tsd-signature tsd-kind-icon">textbase<wbr>Line<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;top&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;middle&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;alphabetic&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;bottom&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L146">index.d.ts:146</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L144">index.d.ts:144</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -542,13 +544,12 @@
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L14">index.d.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L13">index.d.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The width of the canvas.
-							Assigning to this property causes nothing.</p>
+							<p>The width of the canvas.</p>
 						</div>
 					</div>
 				</section>
@@ -565,7 +566,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L316">index.d.ts:316</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L314">index.d.ts:314</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -608,7 +609,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L265">index.d.ts:265</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L263">index.d.ts:263</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -631,7 +632,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L311">index.d.ts:311</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L309">index.d.ts:309</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -676,7 +677,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L187">index.d.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L185">index.d.ts:185</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -713,7 +714,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L287">index.d.ts:287</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L285">index.d.ts:285</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -736,7 +737,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L271">index.d.ts:271</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L269">index.d.ts:269</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -750,6 +751,86 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createimagedata" class="tsd-anchor"></a>
+					<h3>create<wbr>Image<wbr>Data</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Image<wbr>Data<span class="tsd-signature-symbol">(</span>imageData<span class="tsd-signature-symbol">: </span><a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Image<wbr>Data<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Image<wbr>Data<span class="tsd-signature-symbol">(</span>ImageDataOrWidth<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a>, height<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L414">index.d.ts:414</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new, blank <code>ImageData</code> object with the specified dimensions.
+									All of the pixels in the new object are transparent black.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>imageData: <a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An existing ImageData object from which to copy the width and height. The image itself is not copied.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L423">index.d.ts:423</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new, blank <code>ImageData</code> object with the specified dimensions.
+									All of the pixels in the new object are transparent black.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>width: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The width to give the new <code>ImageData</code> object. A negative value flips the rectangle around the vertical axis.</p>
+									</div>
+								</li>
+								<li>
+									<h5>height: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The height to give the new <code>ImageData</code> object. A negative value flips the rectangle around the horizontal axis.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L424">index.d.ts:424</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ImageDataOrWidth: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> height: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="createlineargradient" class="tsd-anchor"></a>
 					<h3>create<wbr>Linear<wbr>Gradient</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -759,7 +840,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L210">index.d.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L208">index.d.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -822,7 +903,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L243">index.d.ts:243</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L241">index.d.ts:241</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -855,7 +936,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L235">index.d.ts:235</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L233">index.d.ts:233</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -932,7 +1013,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L257">index.d.ts:257</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L255">index.d.ts:255</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -967,7 +1048,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L258">index.d.ts:258</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L256">index.d.ts:256</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -993,7 +1074,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L259">index.d.ts:259</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L257">index.d.ts:257</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1040,7 +1121,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L281">index.d.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L279">index.d.ts:279</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1062,7 +1143,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L177">index.d.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L175">index.d.ts:175</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1099,7 +1180,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L382">index.d.ts:382</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L380">index.d.ts:380</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1160,7 +1241,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L154">index.d.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L152">index.d.ts:152</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1175,6 +1256,55 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getimagedata" class="tsd-anchor"></a>
+					<h3>get<wbr>Image<wbr>Data</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Image<wbr>Data<span class="tsd-signature-symbol">(</span>sx<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, sy<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, sw<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, sh<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L434">index.d.ts:434</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an ImageData object representing the underlying pixel data for a specified portion of the canvas.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sx: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The x-axis coordinate of the top-left corner of the rectangle from which the <code>ImageData</code> will be extracted.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sy: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The y-axis coordinate of the top-left corner of the rectangle from which the <code>ImageData</code> will be extracted.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sw: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The width of the rectangle from which the <code>ImageData</code> will be extracted. Positive values are to the right, and negative to the left.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sh: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The height of the rectangle from which the <code>ImageData</code> will be extracted. Positive values are down, and negative are up.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="ispointinpath" class="tsd-anchor"></a>
 					<h3>is<wbr>Point<wbr>InPath</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1184,7 +1314,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L321">index.d.ts:321</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L319">index.d.ts:319</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1215,7 +1345,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L297">index.d.ts:297</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L295">index.d.ts:295</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1246,7 +1376,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L408">index.d.ts:408</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L406">index.d.ts:406</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1277,7 +1407,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L292">index.d.ts:292</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L290">index.d.ts:290</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1299,6 +1429,51 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="putimagedata" class="tsd-anchor"></a>
+					<h3>put<wbr>Image<wbr>Data</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">put<wbr>Image<wbr>Data<span class="tsd-signature-symbol">(</span>imageData<span class="tsd-signature-symbol">: </span><a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a>, dx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, dy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L445">index.d.ts:445</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Paints data from the given ImageData object onto the canvas.
+										If a dirty rectangle is provided, only the pixels from that rectangle are painted.
+									This method is not affected by the canvas transformation matrix.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>imageData: <a href="../interfaces/imagedata.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageData</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An <code>ImageData</code> object containing the array of pixel values.</p>
+									</div>
+								</li>
+								<li>
+									<h5>dx: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Horizontal position (x coordinate) at which to place the image data in the destination canvas.</p>
+									</div>
+								</li>
+								<li>
+									<h5>dy: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Vertical position (y coordinate) at which to place the image data in the destination canvas.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="quadraticcurveto" class="tsd-anchor"></a>
 					<h3>quadratic<wbr>Curve<wbr>To</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1308,7 +1483,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L304">index.d.ts:304</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L302">index.d.ts:302</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1347,7 +1522,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L172">index.d.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L170">index.d.ts:170</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1397,7 +1572,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L419">index.d.ts:419</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L456">index.d.ts:456</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1420,7 +1595,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L331">index.d.ts:331</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L329">index.d.ts:329</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1448,7 +1623,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L413">index.d.ts:413</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L450">index.d.ts:450</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1470,7 +1645,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L326">index.d.ts:326</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L324">index.d.ts:324</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1501,7 +1676,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L361">index.d.ts:361</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L359">index.d.ts:359</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1549,7 +1724,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L276">index.d.ts:276</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L274">index.d.ts:274</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1571,7 +1746,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L182">index.d.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L180">index.d.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1608,7 +1783,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L401">index.d.ts:401</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L399">index.d.ts:399</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1662,7 +1837,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L349">index.d.ts:349</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L347">index.d.ts:347</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1710,7 +1885,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/0995c04/types/index.d.ts#L336">index.d.ts:336</a></li>
+									<li>Defined in <a href="https://github.com/manicmaniac/sips-js-api/blob/6f5e1ac/types/index.d.ts#L334">index.d.ts:334</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1824,6 +1999,9 @@
 								<a href="canvas.html#closepath" class="tsd-kind-icon">close<wbr>Path</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="canvas.html#createimagedata" class="tsd-kind-icon">create<wbr>Image<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="canvas.html#createlineargradient" class="tsd-kind-icon">create<wbr>Linear<wbr>Gradient</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -1848,6 +2026,9 @@
 								<a href="canvas.html#getcontext" class="tsd-kind-icon">get<wbr>Context</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="canvas.html#getimagedata" class="tsd-kind-icon">get<wbr>Image<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="canvas.html#ispointinpath" class="tsd-kind-icon">is<wbr>Point<wbr>InPath</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -1858,6 +2039,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="canvas.html#moveto" class="tsd-kind-icon">move<wbr>To</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="canvas.html#putimagedata" class="tsd-kind-icon">put<wbr>Image<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="canvas.html#quadraticcurveto" class="tsd-kind-icon">quadratic<wbr>Curve<wbr>To</a>
@@ -1913,6 +2097,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/image.html" class="tsd-kind-icon">Image</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/imagedata.html" class="tsd-kind-icon">Image<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/patternobject.html" class="tsd-kind-icon">Pattern<wbr>Object</a>

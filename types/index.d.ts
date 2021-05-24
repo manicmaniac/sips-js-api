@@ -2,20 +2,18 @@ class Canvas {
   /**
    * Initialize Canvas object.
    *
-   * @param width - unsigned integer
-   * @param height - unsigned integer
+   * @param width - A width of the canvas. Must be positive. Float value will be truncated to integer.
+   * @param height - A height of the canvas. Must be positive. Float value will be truncated to integer.
    */
   constructor(width: number, height: number)
 
   /**
    * The width of the canvas.
-   * Assigning to this property causes nothing.
    */
   readonly width: number
 
   /**
    * The height of the canvas.
-   * Assigning to this property causes nothing.
    */
   readonly height: number
 
@@ -408,6 +406,45 @@ class Canvas {
   measureText(text: string): SizeObject
 
   /**
+   * Creates a new, blank `ImageData` object with the specified dimensions.
+   * All of the pixels in the new object are transparent black.
+   *
+   * @param imageData - An existing ImageData object from which to copy the width and height. The image itself is not copied.
+   */
+  createImageData(imageData: ImageData): ImageData
+
+  /**
+   * Creates a new, blank `ImageData` object with the specified dimensions.
+   * All of the pixels in the new object are transparent black.
+   *
+   * @param width - The width to give the new `ImageData` object. A negative value flips the rectangle around the vertical axis.
+   * @param height - The height to give the new `ImageData` object. A negative value flips the rectangle around the horizontal axis.
+   */
+  createImageData(width: number, height: number): ImageData
+  createImageData(ImageDataOrWidth: ImageData | number, height?: number): ImageData
+
+  /**
+   * Returns an ImageData object representing the underlying pixel data for a specified portion of the canvas.
+   *
+   * @param sx - The x-axis coordinate of the top-left corner of the rectangle from which the `ImageData` will be extracted.
+   * @param sy - The y-axis coordinate of the top-left corner of the rectangle from which the `ImageData` will be extracted.
+   * @param sw - The width of the rectangle from which the `ImageData` will be extracted. Positive values are to the right, and negative to the left.
+   * @param sh - The height of the rectangle from which the `ImageData` will be extracted. Positive values are down, and negative are up.
+   */
+  getImageData(sx?: number, sy?: number, sw?: number, sh?: number): ImageData
+
+  /**
+   * Paints data from the given ImageData object onto the canvas.
+   * If a dirty rectangle is provided, only the pixels from that rectangle are painted.
+   * This method is not affected by the canvas transformation matrix.
+   *
+   * @param imageData - An `ImageData` object containing the array of pixel values.
+   * @param dx - Horizontal position (x coordinate) at which to place the image data in the destination canvas.
+   * @param dy - Vertical position (y coordinate) at which to place the image data in the destination canvas.
+   */
+  putImageData(imageData: ImageData, dx: number, dy: number): void
+
+  /**
    * Saves the entire state of the canvas by pushing the current state onto a stack.
    */
   save(): void
@@ -439,11 +476,6 @@ interface Image {
    * Image properties.
    */
   properties: Map<string, any>
-
-  /**
-   * @internal
-   */
-  modifiedProperties?: unknown
 
   /**
    * Return the image property for name, if any.
@@ -494,6 +526,23 @@ interface SizeObject {
   y: number
 }
 
+interface ImageData {
+  /**
+   * Represents a one-dimensional array containing the data in the RGBA order, with integer values between 0 and 255 (inclusive).
+   */
+  readonly data: number[]
+
+  /**
+   * An `unsigned long` representing the actual width, in pixels.
+   */
+  readonly width: number
+
+  /**
+   * An `unsigned long` representing the actual height, in pixels.
+   */
+  readonly height: number
+}
+
 class Output {
   /**
    * Output the context to disk with name and optional type (extension or UTI).
@@ -512,6 +561,11 @@ class Output {
   name: string
 
   /**
+   * @internal
+   */
+  UTI: string
+
+  /**
    * Adds the output to the queue to be written to disk.
    */
   addToQueue(): void
@@ -525,19 +579,16 @@ interface Configuration {
 
   /**
    * Valid images passed as arguments converted into an array of Image objects.
-   * Assigning to this property causes nothing.
    */
   readonly images: Image[]
 
   /**
    * Recommended size for output. Setting the crop or resample flags will set this value.
-   * Assigning to this property causes nothing.
    */
   readonly size: SizeObject
 
   /**
    * If specified, the value of the -Z/--resampleHeightWidthMax option. [default: 0]
-   * Assigning to this property causes nothing.
    */
   readonly longestEdge: number
 
