@@ -74,6 +74,41 @@
 				Like ImageMagick, <code>sips</code> can compose an arbitrary images as you like, with JavaScript.</p>
 				<p>However, as far as I know, there&#39;s no announcement from Apple about this upgrade and no detailed documentation is provided.
 				So I investigate the binary of <code>sips</code> and expose the hidden APIs I could find.</p>
+				<a href="#basic-usage" id="basic-usage" style="color: inherit; text-decoration: none;">
+					<h2>Basic usage</h2>
+				</a>
+				<a href="#hello-world" id="hello-world" style="color: inherit; text-decoration: none;">
+					<h4>Hello world</h4>
+				</a>
+				<p>Save the following script as <code>hello.js</code>.</p>
+				<pre><code class="language-js"><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Hello, world!&#039;</span><span style="color: #000000">)</span>
+</code></pre>
+				<p>Then run:</p>
+				<pre><code class="language-sh"><span style="color: #000000">$ sips -j hello.js</span>
+<span style="color: #000000">Hello, world!</span>
+</code></pre>
+				<a href="#drawing-with-path" id="drawing-with-path" style="color: inherit; text-decoration: none;">
+					<h4>Drawing with path</h4>
+				</a>
+				<p>Save the following script as <code>smile.js</code>.</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">canvas</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Canvas</span><span style="color: #000000">(</span><span style="color: #098658">150</span><span style="color: #000000">, </span><span style="color: #098658">150</span><span style="color: #000000">);</span>
+<span style="color: #001080">canvas</span><span style="color: #000000">.</span><span style="color: #795E26">beginPath</span><span style="color: #000000">();</span>
+<span style="color: #001080">canvas</span><span style="color: #000000">.</span><span style="color: #795E26">arc</span><span style="color: #000000">(</span><span style="color: #098658">75</span><span style="color: #000000">, </span><span style="color: #098658">75</span><span style="color: #000000">, </span><span style="color: #098658">50</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #267F99">Math</span><span style="color: #000000">.PI * </span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">);</span>
+<span style="color: #001080">canvas</span><span style="color: #000000">.</span><span style="color: #795E26">moveTo</span><span style="color: #000000">(</span><span style="color: #098658">110</span><span style="color: #000000">, </span><span style="color: #098658">75</span><span style="color: #000000">);</span>
+<span style="color: #001080">canvas</span><span style="color: #000000">.</span><span style="color: #795E26">arc</span><span style="color: #000000">(</span><span style="color: #098658">75</span><span style="color: #000000">, </span><span style="color: #098658">75</span><span style="color: #000000">, </span><span style="color: #098658">35</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #267F99">Math</span><span style="color: #000000">.PI, </span><span style="color: #0000FF">false</span><span style="color: #000000">);</span>
+<span style="color: #001080">canvas</span><span style="color: #000000">.</span><span style="color: #795E26">moveTo</span><span style="color: #000000">(</span><span style="color: #098658">65</span><span style="color: #000000">, </span><span style="color: #098658">65</span><span style="color: #000000">);</span>
+<span style="color: #001080">canvas</span><span style="color: #000000">.</span><span style="color: #795E26">arc</span><span style="color: #000000">(</span><span style="color: #098658">60</span><span style="color: #000000">, </span><span style="color: #098658">65</span><span style="color: #000000">, </span><span style="color: #098658">5</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #267F99">Math</span><span style="color: #000000">.PI * </span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">);</span>
+<span style="color: #001080">canvas</span><span style="color: #000000">.</span><span style="color: #795E26">moveTo</span><span style="color: #000000">(</span><span style="color: #098658">95</span><span style="color: #000000">, </span><span style="color: #098658">65</span><span style="color: #000000">);</span>
+<span style="color: #001080">canvas</span><span style="color: #000000">.</span><span style="color: #795E26">arc</span><span style="color: #000000">(</span><span style="color: #098658">90</span><span style="color: #000000">, </span><span style="color: #098658">65</span><span style="color: #000000">, </span><span style="color: #098658">5</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #267F99">Math</span><span style="color: #000000">.PI * </span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">);</span>
+<span style="color: #001080">canvas</span><span style="color: #000000">.</span><span style="color: #795E26">stroke</span><span style="color: #000000">();</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">output</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Output</span><span style="color: #000000">(</span><span style="color: #001080">canvas</span><span style="color: #000000">, </span><span style="color: #001080">sips</span><span style="color: #000000">.</span><span style="color: #001080">outputPath</span><span style="color: #000000">);</span>
+<span style="color: #001080">output</span><span style="color: #000000">.</span><span style="color: #795E26">addToQueue</span><span style="color: #000000">();</span>
+</code></pre>
+				<p>Then run:</p>
+				<pre><code class="language-sh"><span style="color: #000000">$ sips -j smile.js -o smile.png</span>
+</code></pre>
+				<p>Output <code>smile.png</code> will be:</p>
+				<p><img src="https://camo.qiitausercontent.com/7f06af31822043a9220a176c2061ee3e9e374e44/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f37333432342f61313635346131332d376335302d323336642d353033382d3230643533623337306634312e706e67" alt="smile.png"></p>
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h2>License</h2>
 				</a>
