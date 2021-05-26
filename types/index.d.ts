@@ -243,6 +243,8 @@ class Canvas {
   /**
    * Provides different ways to draw an image onto the canvas.
    *
+   * @param image - The image to draw into the canvas.
+   *
    * @example
    * ```
    * // sips -j draw.js image.png
@@ -253,8 +255,67 @@ class Canvas {
    * ```
    */
   drawImage(image: Image): void
+
+  /**
+   * Provides different ways to draw an image onto the canvas.
+   *
+   * @param image - The image to draw into the canvas.
+   * @param dx - Horizontal position (x coordinate) at which to place the image in the canvas.
+   * @param dy - Vertical position (y coordinate) at which to place the image in the canvas.
+   *
+   * @example
+   * ```
+   * // sips -j draw.js image.png
+   * const canvas = new Canvas(100, 100)
+   * canvas.drawImage(sips.images.pop(), 10, 10)
+   * const output = new Output(canvas, 'draw.png')
+   * output.addToQueue()
+   * ```
+   */
   drawImage(image: Image, dx: number, dy: number): void
+
+  /**
+   * Provides different ways to draw an image onto the canvas.
+   *
+   * @param image - The image to draw into the canvas.
+   * @param dx - The x-axis coordinate in the destination canvas at which to place the top-left corner of the source image.
+   * @param dy - The y-axis coordinate in the destination canvas at which to place the top-left corner of the source image.
+   * @param dWidth - The width to draw the image in the destination canvas. This allows scaling of the drawn image.
+   * @param dHeight - The height to draw the image in the destination canvas. This allows scaling of the drawn image.
+   *
+   * @example
+   * ```
+   * // sips -j draw.js image.png
+   * const canvas = new Canvas(100, 100)
+   * canvas.drawImage(sips.images.pop(), 10, 10, 10, 10)
+   * const output = new Output(canvas, 'draw.png')
+   * output.addToQueue()
+   * ```
+   */
   drawImage(image: Image, dx: number, dy: number, dWidth: number, dHeight: number): void
+
+  /**
+   * Provides different ways to draw an image onto the canvas.
+   *
+   * @param image - The image to draw into the canvas.
+   * @param sx - The x-axis coordinate of the top left corner of the sub-rectangle of the source image to draw into the destination context.
+   * @param sy - The y-axis coordinate of the top left corner of the sub-rectangle of the source image to draw into the destination context.
+   * @param sWidth - The width of the sub-rectangle of the source image to draw into the destination context.
+   * @param sHeight - The height of the sub-rectangle of the source image to draw into the destination context.
+   * @param dx - The x-axis coordinate in the destination canvas at which to place the top-left corner of the source image.
+   * @param dy - The y-axis coordinate in the destination canvas at which to place the top-left corner of the source image.
+   * @param dWidth - The width to draw the image in the destination canvas. This allows scaling of the drawn image.
+   * @param dHeight - The height to draw the image in the destination canvas. This allows scaling of the drawn image.
+   *
+   * @example
+   * ```
+   * // sips -j draw.js image.png
+   * const canvas = new Canvas(100, 100)
+   * canvas.drawImage(sips.images.pop(), 25, 25, 50, 50, 10, 10, 10, 10)
+   * const output = new Output(canvas, 'draw.png')
+   * output.addToQueue()
+   * ```
+   */
   drawImage(image: Image, sx: number, sy: number, sWidth: number, sHeight: number, dx: number, dy: number, dWidth: number, dHeight: number): void
 
   /**
@@ -292,11 +353,27 @@ class Canvas {
 
   /**
    * Begins a new sub-path at the point specified by the given `(x, y)` coordinates.
+   *
+   * @param x - The x-axis (horizontal) coordinate of the point.
+   * @param y - The y-axis (vertical) coordinate of the point.
    */
   moveTo(x: number, y: number): void
 
   /**
    * Adds a straight line to the current sub-path by connecting the sub-path's last point to the specified `(x, y)` coordinates.
+   *
+   * @param x - The x-axis coordinate of the line's end point.
+   * @param y - The y-axis coordinate of the line's end point.
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(100, 100)
+   * canvas.moveTo(0, 0)
+   * canvas.lineTo(100, 100)
+   * canvas.stroke()
+   * const output = new Output(canvas, 'lineTo.png')
+   * output.addToQueue()
+   * ```
    */
   lineTo(x: number, y: number): void
 
@@ -304,6 +381,21 @@ class Canvas {
    * Adds a quadratic Bézier curve to the current sub-path.
    * It requires two points: the first one is a control point and the second one is the end point.
    * The starting point is the latest point in the current path, which can be changed using {@link Canvas.moveTo} before creating the quadratic Bézier curve.
+   *
+   * @param cpx - The x-axis coordinate of the control point.
+   * @param cpy - The y-axis coordinate of the control point.
+   * @param x - The x-axis coordinate of the end point.
+   * @param y - The y-axis coordinate of the end point.
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(100, 100);
+   * canvas.moveTo(0, 0)
+   * canvas.quadraticCurveTo(0, 100, 100, 100)
+   * canvas.stroke()
+   * const output = new Output(canvas, 'quadraticCurveTo.png')
+   * output.addToQueue()
+   * ```
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void
 
@@ -311,31 +403,110 @@ class Canvas {
    * Adds a cubic Bézier curve to the current sub-path.
    * It requires three points: the first two are control points and the third one is the end point.
    * The starting point is the latest point in the current path, which can be changed using {@link Canvas.moveTo} before creating the Bézier curve.
+   *
+   * @param cp1x - The x-axis coordinate of the first control point.
+   * @param cp1y - The y-axis coordinate of the first control point.
+   * @param cp2x - The x-axis coordinate of the second control point.
+   * @param cp2y - The y-axis coordinate of the second control point.
+   * @param x - The x-axis coordinate of the end point.
+   * @param y - The y-axis coordinate of the end point.
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(100, 100);
+   * canvas.moveTo(0, 0)
+   * canvas.bezierCurveTo(60, 80, 90, 10, 100, 100)
+   * canvas.stroke()
+   * const output = new Output(canvas, 'bezierCurveTo.png')
+   * output.addToQueue()
+   * ```
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void
 
   /**
    * Adds a circular arc to the current sub-path.
+   *
+   * @param x - The horizontal coordinate of the arc's center.
+   * @param y - The vertical coordinate of the arc's center.
+   * @param radius - The arc's radius. Must be positive.
+   * @param startAngle - The angle at which the arc starts in radians, measured from the positive x-axis.
+   * @param endAngle - The angle at which the arc ends in radians, measured from the positive x-axis.
+   * @param counterclockwise - If true, draws the arc counter-clockwise between the start and end angles.
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(100, 100);
+   * canvas.beginPath();
+   * canvas.arc(100, 75, 50, 0, 2 * Math.PI);
+   * canvas.stroke();
+   * const output = new Output(canvas, 'arc.png')
+   * output.addToQueue()
+   * ```
    */
-  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
+  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise: boolean = false): void
 
   /**
    * Reports whether or not the specified point is contained in the current path.
+   *
+   * @param x - The x-axis coordinate of the point to check, unaffected by the current transformation of the context.
+   * @param y - The y-axis coordinate of the point to check, unaffected by the current transformation of the context.
+   * @returns - A Boolean, which is true if the specified point is contained in the current or specified path, otherwise false.
    */
   isPointInPath(x: number, y: number): boolean
 
   /**
    * Adds a scaling transformation to the canvas units horizontally and/or vertically.
+   *
+   * By default, one unit on the canvas is exactly one pixel.
+   * A scaling transformation modifies this behavior.
+   * For instance, a scaling factor of 0.5 results in a unit size of 0.5 pixels;
+   * shapes are thus drawn at half the normal size.
+   * Similarly, a scaling factor of 2.0 increases the unit size so that one unit becomes two pixels; shapes are thus drawn at twice the normal size.
+   *
+   * @param x - Scaling factor in the horizontal direction. A negative value flips pixels across the vertical axis. A value of `1` results in no horizontal scaling.
+   * @param y - Scaling factor in the vertical direction. A negative value flips pixels across the horizontal axis. A value of `1` results in no vertical scaling.
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(50, 50);
+   * canvas.scale(3, 4)
+   * canvas.fillRect(0, 0, 10, 10)
+   * const output = new Output(canvas, 'scale.png')
+   * output.addToQueue()
+   * ```
    */
   scale(x: number, y: number): void
 
   /**
    * Adds a rotation to the transformation matrix.
+   *
+   * @param angle - The rotation angle, clockwise in radians. You can use `degree * Math.PI / 180` to calculate a radian from a degree.
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(50, 50);
+   * canvas.rotate(45 * Math.PI / 180)
+   * canvas.fillRect(30, 0, 10, 10)
+   * const output = new Output(canvas, 'rotate.png')
+   * output.addToQueue()
+   * ```
    */
   rotate(angle: number): void
 
   /**
-   * Adds a translation transformation to the current matrix.
+   * Adds a translation transformation to the current matrix by moving the canvas and its origin `x` units horizontally and `y` units vertically on the grid.
+   *
+   * @param x - Distance to move in the horizontal direction. Positive values are to the right, and negative to the left.
+   * @param y - Distance to move in the vertical direction. Positive values are down, and negative are up.
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(50, 50);
+   * canvas.translate(25, 25)
+   * canvas.fillRect(0, 0, 10, 10)
+   * const output = new Output(canvas, 'translate.png')
+   * output.addToQueue()
+   * ```
    */
   translate(x: number, y: number): void
 
@@ -349,6 +520,22 @@ class Canvas {
    *   b d f
    *   0 0 1 ]
    * ```
+   *
+   * @param a - (m11) Horizontal scaling. A value of 1 results in no scaling.
+   * @param b - (m12) Vertical scaling.
+   * @param c - (m21) Horizontal scaling.
+   * @param d - (m22) Vertical scaling. A value of 1 results in no scaling.
+   * @param e - (dx) Horizontal translation (moving).
+   * @param f - (dy) Vertical translation (moving).
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(100, 100);
+   * canvas.transform(1, 0.2, 0.8, 1, 0, 0)
+   * canvas.fillRect(0, 0, 50, 50)
+   * const output = new Output(canvas, 'transform.png')
+   * output.addToQueue()
+   * ```
    */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void
 
@@ -360,6 +547,22 @@ class Canvas {
    * [ a c e
    *   b d f
    *   0 0 1 ]
+   * ```
+   *
+   * @param a - (m11) Horizontal scaling. A value of 1 results in no scaling.
+   * @param b - (m12) Vertical scaling.
+   * @param c - (m21) Horizontal scaling.
+   * @param d - (m22) Vertical scaling. A value of 1 results in no scaling.
+   * @param e - (dx) Horizontal translation (moving).
+   * @param f - (dy) Vertical translation (moving).
+   *
+   * @example
+   * ```
+   * const canvas = new Canvas(100, 100);
+   * canvas.setTransform(1, 0.2, 0.8, 1, 0, 0)
+   * canvas.fillRect(0, 0, 50, 50)
+   * const output = new Output(canvas, 'transform.png')
+   * output.addToQueue()
    * ```
    */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void
@@ -532,8 +735,15 @@ interface PatternObject {
 }
 
 interface SizeObject {
-  x: number
-  y: number
+  /**
+   * A width value.
+   */
+  width: number
+
+  /**
+   * A height value.
+   */
+  height: number
 }
 
 interface ImageData {
@@ -556,6 +766,21 @@ interface ImageData {
 class Output {
   /**
    * Output the context to disk with name and optional type (extension or UTI).
+   * UTI must inherits `public.image`.
+   *
+   * Acceptable extensions / UTIs:
+   *
+   * |extension|       UTI        |
+   * |---------|------------------|
+   * |   png   |    public.png    |
+   * |jpeg/jpg |   public.jpeg    |
+   * |  tiff   |   public.tiff    |
+   * |   gif   |com.compuserve.gif|
+   * |   bmp   |com.microsoft.bmp |
+   *
+   * @param context - The {@link Canvas} to output.
+   * @param name - The filename of the output file. It can be either of absolute path or relative path.
+   * @param type - The preferred file extension of the output file or UTI. If not specified, the extension of `name` is used.
    */
   constructor(context: Canvas, name: string, type?: string)
 
@@ -584,7 +809,7 @@ interface Configuration {
   /**
    * Arguments passed into the program as an array of strings.
    */
-  arguments: string[]
+  readonly arguments: string[]
 
   /**
    * Valid images passed as arguments converted into an array of {@link Image} objects.
@@ -606,7 +831,7 @@ interface Configuration {
    *
    * @defaultValue `undefined`
    */
-  outputPath: string
+  readonly outputPath: string
 
   /**
    * @internal
