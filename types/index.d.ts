@@ -146,7 +146,7 @@ class Canvas {
   /**
    * A drawing context on the canvas.
    *
-   * Contrary to DOM API, `Context` object is identical to `Canvas` object.
+   * Contrary to DOM API, `Context` object is identical to {@link Canvas} object.
    * It always returns itself.
    */
   getContext(): this
@@ -155,7 +155,7 @@ class Canvas {
    * Adds a rectangle to the current path.
    *
    * Like other methods that modify the current path, this method does not directly render anything.
-   * To draw the rectangle onto a canvas, you can use the `fill()` or `stroke()` methods.
+   * To draw the rectangle onto a canvas, you can use the {@link Canvas.fill} or {@link Canvas.stroke} methods.
    *
    * @example
    * ```
@@ -170,12 +170,12 @@ class Canvas {
   rect(x: number, y: number, width: number, height: number): void
 
   /**
-   * Draws a rectangle that is filled according to the current `fillStyle`.
+   * Draws a rectangle that is filled according to the current {@link Canvas.fillStyle}.
    */
   fillRect(x: number, y: number, width: number, height: number): void
 
   /**
-   * Draws a rectangle that is stroked (outlined) according to the current `strokeStyle` and other context settings.
+   * Draws a rectangle that is stroked (outlined) according to the current {@link Canvas.strokeStyle} and other context settings.
    */
   strokeRect(x: number, y: number, width: number, height: number): void
 
@@ -235,8 +235,8 @@ class Canvas {
   /**
    * Creates a pattern using the specified image and repetition.
    *
-   * This method works but it seems that the use of `PatternObject` is still in-development.
-   * Neither of `fillStyle` and `strokeStyle` accept `PatternObject` as a value.
+   * This method works but it seems that the use of {@link PatternObject} is still in-development.
+   * Neither of {@link Canvas.fillStyle} and {@link Canvas.strokeStyle} accept {@link PatternObject} as a value.
    */
   createPattern(image: Image, style: 'repeat' | 'repeat-x' | 'repeat-y' | 'no-repeat'): PatternObject
 
@@ -252,8 +252,14 @@ class Canvas {
    * output.addToQueue()
    * ```
    */
+  drawImage(image: Image): void
   drawImage(image: Image, dx: number, dy: number): void
   drawImage(image: Image, dx: number, dy: number, dWidth: number, dHeight: number): void
+  drawImage(image: Image, sx: number, sy: number, sWidth: number, sHeight: number, dx: number, dy: number, dWidth: number, dHeight: number): void
+
+  /**
+   * @hidden
+   */
   drawImage(image: Image, sx?: number, sy?: number, sWidth?: number, sHeight?: number, dx?: number, dy?: number, dWidth?: number, dHeight?: number): void
 
   /**
@@ -269,12 +275,12 @@ class Canvas {
   closePath(): void
 
   /**
-   * Strokes (outlines) the current or given path with the current `strokeStyle`.
+   * Strokes (outlines) the current or given path with the current {@link Canvas.strokeStyle}.
    */
   stroke(): void
 
   /**
-   * Fills the current or given path with the current `fillStyle`.
+   * Fills the current or given path with the current {@link Canvas.fillStyle}.
    */
   fill(): void
 
@@ -297,14 +303,14 @@ class Canvas {
   /**
    * Adds a quadratic Bézier curve to the current sub-path.
    * It requires two points: the first one is a control point and the second one is the end point.
-   * The starting point is the latest point in the current path, which can be changed using `moveTo()` before creating the quadratic Bézier curve.
+   * The starting point is the latest point in the current path, which can be changed using {@link Canvas.moveTo} before creating the quadratic Bézier curve.
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void
 
   /**
    * Adds a cubic Bézier curve to the current sub-path.
    * It requires three points: the first two are control points and the third one is the end point.
-   * The starting point is the latest point in the current path, which can be changed using `moveTo()` before creating the Bézier curve.
+   * The starting point is the latest point in the current path, which can be changed using {@link Canvas.moveTo} before creating the Bézier curve.
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void
 
@@ -359,7 +365,7 @@ class Canvas {
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void
 
   /**
-   * Draws a text string at the specified coordinates, filling the string's characters with the current fillStyle.
+   * Draws a text string at the specified coordinates, filling the string's characters with the current {@link Canvas.fillStyle}.
    * An optional parameter allows specifying a maximum width for the rendered text, which the user agent will achieve by condensing the text or by using a lower font size.
    *
    * @param text - The text string to render into canvas.
@@ -406,39 +412,43 @@ class Canvas {
   measureText(text: string): SizeObject
 
   /**
-   * Creates a new, blank `ImageData` object with the specified dimensions.
+   * Creates a new, blank {@link ImageData} object with the specified dimensions.
    * All of the pixels in the new object are transparent black.
    *
-   * @param imageData - An existing ImageData object from which to copy the width and height. The image itself is not copied.
+   * @param imageData - An existing {@link ImageData} object from which to copy the width and height. The image itself is not copied.
    */
   createImageData(imageData: ImageData): ImageData
 
   /**
-   * Creates a new, blank `ImageData` object with the specified dimensions.
+   * Creates a new, blank {@link ImageData} object with the specified dimensions.
    * All of the pixels in the new object are transparent black.
    *
-   * @param width - The width to give the new `ImageData` object. A negative value flips the rectangle around the vertical axis.
-   * @param height - The height to give the new `ImageData` object. A negative value flips the rectangle around the horizontal axis.
+   * @param width - The width to give the new {@link ImageData} object. A negative value flips the rectangle around the vertical axis.
+   * @param height - The height to give the new {@link ImageData} object. A negative value flips the rectangle around the horizontal axis.
    */
   createImageData(width: number, height: number): ImageData
+
+  /**
+   * @hidden
+   */
   createImageData(ImageDataOrWidth: ImageData | number, height?: number): ImageData
 
   /**
-   * Returns an ImageData object representing the underlying pixel data for a specified portion of the canvas.
+   * Returns an {@link ImageData} object representing the underlying pixel data for a specified portion of the canvas.
    *
-   * @param sx - The x-axis coordinate of the top-left corner of the rectangle from which the `ImageData` will be extracted.
-   * @param sy - The y-axis coordinate of the top-left corner of the rectangle from which the `ImageData` will be extracted.
-   * @param sw - The width of the rectangle from which the `ImageData` will be extracted. Positive values are to the right, and negative to the left.
-   * @param sh - The height of the rectangle from which the `ImageData` will be extracted. Positive values are down, and negative are up.
+   * @param sx - The x-axis coordinate of the top-left corner of the rectangle from which the {@link ImageData} will be extracted.
+   * @param sy - The y-axis coordinate of the top-left corner of the rectangle from which the {@link ImageData} will be extracted.
+   * @param sw - The width of the rectangle from which the {@link ImageData} will be extracted. Positive values are to the right, and negative to the left.
+   * @param sh - The height of the rectangle from which the {@link ImageData} will be extracted. Positive values are down, and negative are up.
    */
   getImageData(sx?: number, sy?: number, sw?: number, sh?: number): ImageData
 
   /**
-   * Paints data from the given ImageData object onto the canvas.
+   * Paints data from the given {@link ImageData} object onto the canvas.
    * If a dirty rectangle is provided, only the pixels from that rectangle are painted.
    * This method is not affected by the canvas transformation matrix.
    *
-   * @param imageData - An `ImageData` object containing the array of pixel values.
+   * @param imageData - An {@link ImageData} object containing the array of pixel values.
    * @param dx - Horizontal position (x coordinate) at which to place the image data in the destination canvas.
    * @param dy - Vertical position (y coordinate) at which to place the image data in the destination canvas.
    */
@@ -547,7 +557,6 @@ class Output {
   /**
    * Output the context to disk with name and optional type (extension or UTI).
    */
-  constructor(context: Canvas, name: string)
   constructor(context: Canvas, name: string, type?: string)
 
   /**
@@ -578,7 +587,7 @@ interface Configuration {
   arguments: string[]
 
   /**
-   * Valid images passed as arguments converted into an array of Image objects.
+   * Valid images passed as arguments converted into an array of {@link Image} objects.
    */
   readonly images: Image[]
 
@@ -588,14 +597,14 @@ interface Configuration {
   readonly size: SizeObject
 
   /**
-   * If specified, the value of the -Z/--resampleHeightWidthMax option. [default: 0]
+   * If specified, the value of the `-Z` or `--resampleHeightWidthMax` option. [default: 0]
    */
   readonly longestEdge: number
 
   /**
    * The full path of the output directory specified with `-o` or `--out` option.
    *
-   * @defaultValue undefined
+   * @defaultValue `undefined`
    */
   outputPath: string
 
@@ -618,7 +627,7 @@ var sips: Configuration
 var console: Console
 
 /**
- * Output to standard output. Equivalent to console.log(str).
+ * Output to standard output. Equivalent to {@link Console.log}.
  *
  * @param str - The text string to write to standard output.
  */
