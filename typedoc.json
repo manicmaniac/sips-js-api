@@ -1,4 +1,5 @@
 {
   "entryPoints": ["./types/index.d.ts"],
+  "disableSources": true,
   "readme": "README.md"
 }
