@@ -612,7 +612,7 @@ class Canvas {
    *
    * @param text - The text string to measure.
    */
-  measureText(text: string): SizeObject
+  measureText(text: string): Size
 
   /**
    * Creates a new, blank {@link ImageData} object with the specified dimensions.
@@ -678,7 +678,7 @@ interface Image {
   /**
    * Size of image (pixels).
    */
-  readonly size: SizeObject
+  readonly size: Size
 
   /**
    * @internal
@@ -703,13 +703,13 @@ interface Image {
   /**
    * @internal
    */
-  scaledSizeWithLongestEdge(longestEdge: number): SizeObject
+  scaledSizeWithLongestEdge(longestEdge: number): Size
 
   /**
    * Return the size that will contain the image with the longest edge set to length.
    * Maintains aspect ratio.
    */
-  sizeToFitLongestEdge(length: number): SizeObject
+  sizeToFitLongestEdge(length: number): Size
 }
 
 interface Gradient {
@@ -734,7 +734,77 @@ interface PatternObject {
   style: unknown
 }
 
-interface SizeObject {
+class Rect {
+  /**
+   * Initializes a rectangle with the specified coordinate and size values.
+   *
+   * @param x - The x-coordinate of the rectangle's origin point.
+   * @param y - The y-coordinate of the rectangle's origin point.
+   * @param width - The width of the rectangle.
+   * @param height - The height of the rectangle.
+   */
+  constructor(x: number, y: number, width: number, height: number)
+
+  /**
+   * The x-coordinate of the rectangle's origin point.
+   */
+  x: number
+
+  /**
+   * The y-coordinate of the rectangle's origin point.
+   */
+  y: number
+
+  /**
+   * The width of a rectangle.
+   */
+  width: number
+
+  /**
+   * The height of a rectangle.
+   */
+  height: number
+
+  /**
+   * A point that specifies the coordinates of the rectangle's origin.
+   */
+  readonly origin: Point
+
+  /**
+   * A size that specifies the height and width of the rectangle.
+   */
+  readonly size: Size
+}
+
+class Point {
+  /**
+   * Initializes a point with the specified coordinates.
+   *
+   * @param x - The x-coordinate of the point to construct.
+   * @param y - The y-coordinate of the point to construct.
+   */
+  constructor(x: number, y: number)
+
+  /**
+   * The x-coordinate of the point.
+   */
+  x: number
+
+  /**
+   * The y-coordinate of the point.
+   */
+  y: number
+}
+
+class Size {
+  /**
+   * Initialize a size with the specified dimension values.
+   *
+   * @param width - A width value.
+   * @param height - A width value.
+   */
+  constructor(width: number, height: number)
+
   /**
    * A width value.
    */
@@ -819,7 +889,7 @@ interface Configuration {
   /**
    * Recommended size for output. Setting the crop or resample flags will set this value.
    */
-  readonly size: SizeObject
+  readonly size: Size
 
   /**
    * If specified, the value of the `-Z` or `--resampleHeightWidthMax` option. [default: 0]
@@ -836,7 +906,7 @@ interface Configuration {
   /**
    * @internal
    */
-  requestedSizeForSize(size: SizeObject): SizeObject
+  requestedSizeForSize(size: Size): Size
 }
 
 interface Console {
