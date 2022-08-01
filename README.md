@@ -38,18 +38,18 @@ Hello, world!
 Save the following script as `smile.js`.
 
 ```js
-const canvas = new Canvas(150, 150);
-canvas.beginPath();
-canvas.arc(75, 75, 50, 0, Math.PI * 2, true);
-canvas.moveTo(110, 75);
-canvas.arc(75, 75, 35, 0, Math.PI, false);
-canvas.moveTo(65, 65);
-canvas.arc(60, 65, 5, 0, Math.PI * 2, true);
-canvas.moveTo(95, 65);
-canvas.arc(90, 65, 5, 0, Math.PI * 2, true);
-canvas.stroke();
-const output = new Output(canvas, sips.outputPath);
-output.addToQueue();
+const canvas = new Canvas(150, 150)
+canvas.beginPath()
+canvas.arc(75, 75, 50, 0, Math.PI * 2, true)
+canvas.moveTo(110, 75)
+canvas.arc(75, 75, 35, 0, Math.PI, false)
+canvas.moveTo(65, 65)
+canvas.arc(60, 65, 5, 0, Math.PI * 2, true)
+canvas.moveTo(95, 65)
+canvas.arc(90, 65, 5, 0, Math.PI * 2, true)
+canvas.stroke()
+const output = new Output(canvas, sips.outputPath)
+output.addToQueue()
 ```
 
 Then run:
