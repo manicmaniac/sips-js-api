@@ -2,6 +2,8 @@
 
 An unofficial documentation of `sips`'s JavaScript API.
 
+This documentation is written based on the specification of macOS Monterey.
+
 ## What's sips?
 
 If you are using macOS, you already have it in `/usr/bin/sips`.
