@@ -11,6 +11,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - run: test -z "$(git status --porcelain docs)"
       - uses: actions/upload-artifact@v3
         with:
           path: docs
