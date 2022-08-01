@@ -125,7 +125,10 @@ class Canvas {
   /**
    * The current text style to use when drawing text. This string uses the same syntax as the CSS font specifier.
    *
+   * You can see the full list of available fonts with `fc-list : family` shell command.
+   *
    * @defaultValue `"12pt Helvetica"`
+   * @see [Fonts included with macOS Monterey | Apple Support](https://support.apple.com/en-us/HT212587)
    */
   font: string
 
