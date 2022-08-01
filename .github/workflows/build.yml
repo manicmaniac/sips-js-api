@@ -12,6 +12,8 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: test -z "$(git status --porcelain docs)"
+      - run: git diff
+        if: failure()
       - uses: actions/upload-artifact@v3
         with:
           path: docs
