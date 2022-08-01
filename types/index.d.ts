@@ -396,7 +396,7 @@ class Canvas {
    *
    * @example
    * ```
-   * const canvas = new Canvas(100, 100);
+   * const canvas = new Canvas(100, 100)
    * canvas.moveTo(0, 0)
    * canvas.quadraticCurveTo(0, 100, 100, 100)
    * canvas.stroke()
@@ -420,7 +420,7 @@ class Canvas {
    *
    * @example
    * ```
-   * const canvas = new Canvas(100, 100);
+   * const canvas = new Canvas(100, 100)
    * canvas.moveTo(0, 0)
    * canvas.bezierCurveTo(60, 80, 90, 10, 100, 100)
    * canvas.stroke()
@@ -442,10 +442,10 @@ class Canvas {
    *
    * @example
    * ```
-   * const canvas = new Canvas(100, 100);
-   * canvas.beginPath();
-   * canvas.arc(100, 75, 50, 0, 2 * Math.PI);
-   * canvas.stroke();
+   * const canvas = new Canvas(100, 100)
+   * canvas.beginPath()
+   * canvas.arc(100, 75, 50, 0, 2 * Math.PI)
+   * canvas.stroke()
    * const output = new Output(canvas, 'arc.png')
    * output.addToQueue()
    * ```
@@ -475,7 +475,7 @@ class Canvas {
    *
    * @example
    * ```
-   * const canvas = new Canvas(50, 50);
+   * const canvas = new Canvas(50, 50)
    * canvas.scale(3, 4)
    * canvas.fillRect(0, 0, 10, 10)
    * const output = new Output(canvas, 'scale.png')
@@ -491,7 +491,7 @@ class Canvas {
    *
    * @example
    * ```
-   * const canvas = new Canvas(50, 50);
+   * const canvas = new Canvas(50, 50)
    * canvas.rotate(45 * Math.PI / 180)
    * canvas.fillRect(30, 0, 10, 10)
    * const output = new Output(canvas, 'rotate.png')
@@ -508,7 +508,7 @@ class Canvas {
    *
    * @example
    * ```
-   * const canvas = new Canvas(50, 50);
+   * const canvas = new Canvas(50, 50)
    * canvas.translate(25, 25)
    * canvas.fillRect(0, 0, 10, 10)
    * const output = new Output(canvas, 'translate.png')
@@ -537,7 +537,7 @@ class Canvas {
    *
    * @example
    * ```
-   * const canvas = new Canvas(100, 100);
+   * const canvas = new Canvas(100, 100)
    * canvas.transform(1, 0.2, 0.8, 1, 0, 0)
    * canvas.fillRect(0, 0, 50, 50)
    * const output = new Output(canvas, 'transform.png')
@@ -565,7 +565,7 @@ class Canvas {
    *
    * @example
    * ```
-   * const canvas = new Canvas(100, 100);
+   * const canvas = new Canvas(100, 100)
    * canvas.setTransform(1, 0.2, 0.8, 1, 0, 0)
    * canvas.fillRect(0, 0, 50, 50)
    * const output = new Output(canvas, 'transform.png')
