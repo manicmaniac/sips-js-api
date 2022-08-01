@@ -1,3 +1,7 @@
+/**
+ * The `Canvas` class provides the 2D rendering context for the drawing images.
+ * It is used for drawing shapes, text, images, and other objects.
+ */
 class Canvas {
   /**
    * Initialize Canvas object.
@@ -672,6 +676,10 @@ class Canvas {
   restore(): void
 }
 
+/**
+ * The `Image` interface represents an image that is passed to `sips` as argument.
+ * It can be obtained through {@link Configuration.images}.
+ */
 interface Image {
   /**
    * Name of image.
@@ -715,6 +723,12 @@ interface Image {
   sizeToFitLongestEdge(length: number): Size
 }
 
+/**
+ * The `Gradient` interface represents an opaque object describing gradient.
+ * It is returned by the methods {@link Canvas.createLinearGradient}, {@link Canvas.createRadialGradient}.
+ *
+ * It can be used as a {@link Canvas.fillStyle} or {@link Canvas.strokeStyle}.
+ */
 interface Gradient {
   /**
    * Adds a new color stop, defined by an `offset` and a `color`, to a given canvas gradient.
@@ -725,6 +739,11 @@ interface Gradient {
   addColorStop(offset: number, color: string): void
 }
 
+/**
+ * The `PatternObject` interface represents an opaque object describing a pattern, based on image, a canvas, or a video, created by the {@link Canvas.createPattern} method.
+ *
+ * It can be used as a {@link Canvas.fillStyle} or {@link Canvas.strokeStyle}.
+ */
 interface PatternObject {
   /**
    * @internal
@@ -737,6 +756,10 @@ interface PatternObject {
   style: unknown
 }
 
+/**
+ * The `Rect` class represents a rectangle.
+ * Rectangles consist of an x and y coordinate pair identifying a minimum x value, a minimum y value, and a width and height.
+ */
 class Rect {
   /**
    * Initializes a rectangle with the specified coordinate and size values.
@@ -779,6 +802,10 @@ class Rect {
   readonly size: Size
 }
 
+/**
+ * The `Point` class represents a point in 2D coordinate system.
+ * The origin `{0, 0}` is located in the top left corner of the relevant object.
+ */
 class Point {
   /**
    * Initializes a point with the specified coordinates.
@@ -799,6 +826,9 @@ class Point {
   y: number
 }
 
+/**
+ * The `Size` class represents a size in 2D coordinate system.
+ */
 class Size {
   /**
    * Initialize a size with the specified dimension values.
@@ -819,6 +849,10 @@ class Size {
   height: number
 }
 
+/**
+ * The `ImageData` interface represents the underlying pixel data of an area of a {@link Canvas}.
+ * It is created using {@link Canvas.createImageData} method.
+ */
 interface ImageData {
   /**
    * Represents a one-dimensional array containing the data in the RGBA order, with integer values between 0 and 255 (inclusive).
@@ -836,6 +870,9 @@ interface ImageData {
   readonly height: number
 }
 
+/**
+ * The `Output` represents output file name and format of {@link Canvas}.
+ */
 class Output {
   /**
    * Output the context to disk with name and optional type (extension or UTI).
@@ -878,6 +915,9 @@ class Output {
   addToQueue(): void
 }
 
+/**
+ * The `Configuration` interface contains various information about the current process.
+ */
 interface Configuration {
   /**
    * Arguments passed into the program as an array of strings.
@@ -912,6 +952,9 @@ interface Configuration {
   requestedSizeForSize(size: Size): Size
 }
 
+/**
+ * The `Console` interface provides access to standard output.
+ */
 interface Console {
   /**
    * Output to standard output.
