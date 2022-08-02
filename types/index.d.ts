@@ -41,7 +41,7 @@ class Canvas {
    * })()
    * ```
    */
-  fillStyle: string
+  fillStyle: string | Gradient
 
   /**
    * The color, gradient, or pattern to use for the strokes (outlines) around shapes.
@@ -749,12 +749,12 @@ interface PatternObject {
   /**
    * @internal
    */
-  image: Image
+  image: undefined
 
   /**
    * @internal
    */
-  style: unknown
+  style: undefined
 }
 
 /**
@@ -962,7 +962,7 @@ interface Console {
    *
    * @param str - The text string to write to standard output.
    */
-  log(str: string): void
+  log(str: any): void
 }
 
 var sips: Configuration
@@ -973,4 +973,4 @@ var console: Console
  *
  * @param str - The text string to write to standard output.
  */
-function print(str: string): void
+function print(str: any): void
