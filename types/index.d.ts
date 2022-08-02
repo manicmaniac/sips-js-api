@@ -31,6 +31,7 @@ class Canvas {
    * canvas.fillStyle = '#0ff' // Hex colors
    * canvas.fillStyle = 'rgb(0, 255, 255)' // RGB colors
    * canvas.fillStyle = 'rgba(0, 255, 255, 1)' // RGBA colors
+   * canvas.fillStyle = 'hsla(210 60% 60%)' // HSLA colors
    * canvas.fillStyle = (() => { // Gradient
    *   const gradient = canvas.createLinearGradient(20, 70, 70, 70)
    *   gradient.addColorStop(0, 'rgb(255,0,0)')
