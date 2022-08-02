@@ -869,6 +869,9 @@ interface ImageData {
   readonly height: number
 }
 
+type UTI = 'public.png' | 'public.jpeg' | 'public.tiff' | 'com.compuserve.gif' | 'com.microsoft.bmp'
+type FileExtension = 'png' | 'jpeg' | 'jpg' | 'tiff' | 'gif' | 'bmp'
+
 /**
  * The `Output` represents output file name and format of {@link Canvas}.
  */
@@ -891,22 +894,22 @@ class Output {
    * @param name - The filename of the output file. It can be either of absolute path or relative path.
    * @param type - The preferred file extension of the output file or UTI. If not specified, the extension of `name` is used.
    */
-  constructor(context: Canvas, name: string, type?: string)
+  constructor(context: Canvas, name: string, type?: FileExtension | UTI)
 
   /**
-   * @internal
+   * The {@link Canvas} to output.
    */
   canvas: Canvas
 
   /**
-   * @internal
+   * The filename of the output file. It can be either of absolute path or relative path.
    */
   name: string
 
   /**
-   * @internal
+   * The UTI of the output file.
    */
-  UTI: string
+  UTI: UTI
 
   /**
    * Adds the output to the queue to be written to disk.
