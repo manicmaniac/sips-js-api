@@ -741,9 +741,7 @@ interface Gradient {
 }
 
 /**
- * The `PatternObject` interface represents an opaque object describing a pattern, based on image, a canvas, or a video, created by the {@link Canvas.createPattern} method.
- *
- * It can be used as a {@link Canvas.fillStyle} or {@link Canvas.strokeStyle}.
+ * The `PatternObject` seems still in-development and cannot be used anywhere.
  */
 interface PatternObject {
   /**
