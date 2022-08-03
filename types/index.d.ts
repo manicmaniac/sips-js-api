@@ -678,6 +678,26 @@ class Canvas {
 }
 
 /**
+ * The properties of the {@link Image}.
+ */
+interface ImageProperties {
+  FileSize: number
+  uti: UTI
+  ColorModel?: string
+  Depth?: number
+  HasAlpha?: 0 | 1
+  PixelHeight?: number
+  PixelWidth?: number
+  ProfileName?: string
+  Exif?: { [key: string]: any }
+  PNG?: { [key: string]: any }
+  JFIF?: { [key: string]: any }
+  GIF?: { [key: string]: any }
+  TIFF?: { [key: string]: any }
+  [key: string]: any
+}
+
+/**
  * The `Image` interface represents an image that is passed to `sips` as argument.
  * It can be obtained through {@link Configuration.images}.
  */
@@ -693,24 +713,30 @@ interface Image {
   readonly size: Size
 
   /**
-   * @internal
+   * Aspect ratio of image.
    */
   readonly aspectRatio: number
 
   /**
    * Image properties.
    */
-  properties: Map<string, any>
+  readonly properties: Readonly<ImageProperties>
 
   /**
    * Return the image property for name, if any.
+   * 
+   * @param name - Name of the image property.
+   * @returns - Value of the property associated with `name`.
    */
-  getProperty(key: string): any
+  getProperty<T extends keyof ImageProperties>(name: T): ImageProperties[T]
 
   /**
-   * @internal
+   * Set the image property for name to value.
+   * 
+   * @param name - Name of the image property.
+   * @param value - Value of the property associated with `name`.
    */
-  setProperty(key: string, value: any): void
+  setProperty<T extends keyof ImageProperties>(name: T, value: ImageProperties[T]): void
 
   /**
    * @internal
