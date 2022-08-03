@@ -739,15 +739,22 @@ interface Image {
   setProperty<T extends keyof ImageProperties>(name: T, value: ImageProperties[T]): void
 
   /**
-   * @internal
+   * Return the rectangle size whose longer side equals to the specified length.
+   * Maintains aspect ratio.
+   * 
+   * @param longestEdge - Pixel size of the longest edge.
+   * @returns - Calculated size that fits the square whose size has the specified length.
    */
   scaledSizeWithLongestEdge(longestEdge: number): Size
 
   /**
    * Return the size that will contain the image with the longest edge set to length.
    * Maintains aspect ratio.
+   * 
+   * @param longestEdge - Pisel size of the longest edge.
+   * @returns - Calculated size that fits the square whose size has the specified length.
    */
-  sizeToFitLongestEdge(length: number): Size
+  sizeToFitLongestEdge(longestEdge: number): Size
 }
 
 /**
