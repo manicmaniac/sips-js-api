@@ -594,7 +594,7 @@ class Canvas {
    * output.addToQueue()
    * ```
    */
-  fillText(text: string, x: number, y: number, maxWidth?: number): void
+  fillText(text: string, x: number, y: number, maxWidth: number = Infinity): void
 
   /**
    * Draws the outlines of the characters of a text string at the specified coordinates.
