@@ -31,6 +31,7 @@ class Canvas {
    * canvas.fillStyle = '#0ff' // Hex colors
    * canvas.fillStyle = 'rgb(0, 255, 255)' // RGB colors
    * canvas.fillStyle = 'rgba(0, 255, 255, 1)' // RGBA colors
+   * canvas.fillStyle = 'hsla(210 60% 60%)' // HSLA colors
    * canvas.fillStyle = (() => { // Gradient
    *   const gradient = canvas.createLinearGradient(20, 70, 70, 70)
    *   gradient.addColorStop(0, 'rgb(255,0,0)')
@@ -40,7 +41,7 @@ class Canvas {
    * })()
    * ```
    */
-  fillStyle: string
+  fillStyle: string | Gradient
 
   /**
    * The color, gradient, or pattern to use for the strokes (outlines) around shapes.
@@ -593,7 +594,7 @@ class Canvas {
    * output.addToQueue()
    * ```
    */
-  fillText(text: string, x: number, y: number, maxWidth?: number): void
+  fillText(text: string, x: number, y: number, maxWidth: number = Infinity): void
 
   /**
    * Draws the outlines of the characters of a text string at the specified coordinates.
@@ -677,6 +678,26 @@ class Canvas {
 }
 
 /**
+ * The properties of the {@link Image}.
+ */
+interface ImageProperties {
+  FileSize: number
+  uti: string
+  ColorModel?: string
+  Depth?: number
+  HasAlpha?: 0 | 1
+  PixelHeight?: number
+  PixelWidth?: number
+  ProfileName?: string
+  Exif?: { [key: string]: any }
+  PNG?: { [key: string]: any }
+  JFIF?: { [key: string]: any }
+  GIF?: { [key: string]: any }
+  TIFF?: { [key: string]: any }
+  [key: string]: any
+}
+
+/**
  * The `Image` interface represents an image that is passed to `sips` as argument.
  * It can be obtained through {@link Configuration.images}.
  */
@@ -692,35 +713,48 @@ interface Image {
   readonly size: Size
 
   /**
-   * @internal
+   * Aspect ratio of image.
    */
   readonly aspectRatio: number
 
   /**
    * Image properties.
    */
-  properties: Map<string, any>
+  readonly properties: Readonly<ImageProperties>
 
   /**
    * Return the image property for name, if any.
+   * 
+   * @param name - Name of the image property.
+   * @returns - Value of the property associated with `name`.
    */
-  getProperty(key: string): any
+  getProperty<T extends keyof ImageProperties>(name: T): ImageProperties[T]
 
   /**
-   * @internal
+   * Set the image property for name to value.
+   * 
+   * @param name - Name of the image property.
+   * @param value - Value of the property associated with `name`.
    */
-  setProperty(key: string, value: any): void
+  setProperty<T extends keyof ImageProperties>(name: T, value: ImageProperties[T]): void
 
   /**
-   * @internal
+   * Return the rectangle size whose longer side equals to the specified length.
+   * Maintains aspect ratio.
+   * 
+   * @param longestEdge - Pixel size of the longest edge.
+   * @returns - Calculated size that fits the square whose size has the specified length.
    */
   scaledSizeWithLongestEdge(longestEdge: number): Size
 
   /**
    * Return the size that will contain the image with the longest edge set to length.
    * Maintains aspect ratio.
+   * 
+   * @param longestEdge - Pisel size of the longest edge.
+   * @returns - Calculated size that fits the square whose size has the specified length.
    */
-  sizeToFitLongestEdge(length: number): Size
+  sizeToFitLongestEdge(longestEdge: number): Size
 }
 
 /**
@@ -740,20 +774,18 @@ interface Gradient {
 }
 
 /**
- * The `PatternObject` interface represents an opaque object describing a pattern, based on image, a canvas, or a video, created by the {@link Canvas.createPattern} method.
- *
- * It can be used as a {@link Canvas.fillStyle} or {@link Canvas.strokeStyle}.
+ * The `PatternObject` seems still in-development and cannot be used anywhere.
  */
 interface PatternObject {
   /**
-   * @internal
+   * @deprecated Not implemented yet.
    */
-  image: Image
+  image: undefined
 
   /**
-   * @internal
+   * @deprecated Not implemented yet.
    */
-  style: unknown
+  style: undefined
 }
 
 /**
@@ -871,6 +903,33 @@ interface ImageData {
 }
 
 /**
+ * List of extensions and UTIs that is acceptable for output format.
+ */
+interface OutputUTIsByFileExtension {
+  bmp: 'com.microsoft.bmp'
+  dib: 'com.microsoft.bmp'
+  gif: 'com.compuserve.gif'
+  heic: 'public.heic'
+  jp2: 'public.jpeg-2000'
+  jpf: 'public.jpeg-2000'
+  jpx: 'public.jpeg-2000'
+  j2k: 'public.jpeg-2000'
+  j2c: 'public.jpeg-2000'
+  jpeg: 'public.jpeg'
+  jpg: 'public.jpeg'
+  jpe: 'public.jpeg'
+  pdf: 'com.adobe.pdf'
+  png: 'public.png'
+  psd: 'com.adobe.photoshop-image'
+  tga: 'com.truevision.tga-image'
+  tiff: 'public.tiff'
+  tif: 'public.tiff'
+}
+
+type OutputFileExtension = keyof OutputUTIsByFileExtension
+type OutputUTI = OutputUTIsByFileExtension[OutputFileExtension]
+
+/**
  * The `Output` represents output file name and format of {@link Canvas}.
  */
 class Output {
@@ -878,36 +937,28 @@ class Output {
    * Output the context to disk with name and optional type (extension or UTI).
    * UTI must inherits `public.image`.
    *
-   * Acceptable extensions / UTIs:
-   *
-   * |extension|       UTI        |
-   * |---------|------------------|
-   * |   png   |    public.png    |
-   * |jpeg/jpg |   public.jpeg    |
-   * |  tiff   |   public.tiff    |
-   * |   gif   |com.compuserve.gif|
-   * |   bmp   |com.microsoft.bmp |
+   * @see {@link OutputUTIsByFileExtension} for available UTIs and file extensions.
    *
    * @param context - The {@link Canvas} to output.
    * @param name - The filename of the output file. It can be either of absolute path or relative path.
    * @param type - The preferred file extension of the output file or UTI. If not specified, the extension of `name` is used.
    */
-  constructor(context: Canvas, name: string, type?: string)
+  constructor(context: Canvas, name: string, type?: OutputFileExtension | OutputUTI)
 
   /**
-   * @internal
+   * The {@link Canvas} to output.
    */
   canvas: Canvas
 
   /**
-   * @internal
+   * The filename of the output file. It can be either of absolute path or relative path.
    */
   name: string
 
   /**
-   * @internal
+   * The UTI of the output file.
    */
-  UTI: string
+  UTI: OutputUTI
 
   /**
    * Adds the output to the queue to be written to disk.
@@ -959,9 +1010,9 @@ interface Console {
   /**
    * Output to standard output.
    *
-   * @param str - The text string to write to standard output.
+   * @param object - The object to write to standard output.
    */
-  log(str: string): void
+  log(object: any): void
 }
 
 var sips: Configuration
@@ -970,6 +1021,6 @@ var console: Console
 /**
  * Output to standard output. Equivalent to {@link Console.log}.
  *
- * @param str - The text string to write to standard output.
+ * @param object - The object to write to standard output.
  */
-function print(str: string): void
+function print(object: any): void
