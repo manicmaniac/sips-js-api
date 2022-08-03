@@ -994,9 +994,9 @@ interface Console {
   /**
    * Output to standard output.
    *
-   * @param str - The text string to write to standard output.
+   * @param object - The object to write to standard output.
    */
-  log(str: any): void
+  log(object: any): void
 }
 
 var sips: Configuration
@@ -1005,6 +1005,6 @@ var console: Console
 /**
  * Output to standard output. Equivalent to {@link Console.log}.
  *
- * @param str - The text string to write to standard output.
+ * @param object - The object to write to standard output.
  */
-function print(str: any): void
+function print(object: any): void
