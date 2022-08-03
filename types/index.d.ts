@@ -778,12 +778,12 @@ interface Gradient {
  */
 interface PatternObject {
   /**
-   * @internal
+   * @deprecated Not implemented yet.
    */
   image: undefined
 
   /**
-   * @internal
+   * @deprecated Not implemented yet.
    */
   style: undefined
 }
