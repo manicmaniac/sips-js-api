@@ -682,7 +682,7 @@ class Canvas {
  */
 interface ImageProperties {
   FileSize: number
-  uti: UTI
+  uti: string
   ColorModel?: string
   Depth?: number
   HasAlpha?: 0 | 1
@@ -902,8 +902,32 @@ interface ImageData {
   readonly height: number
 }
 
-type UTI = 'public.png' | 'public.jpeg' | 'public.tiff' | 'com.compuserve.gif' | 'com.microsoft.bmp'
-type FileExtension = 'png' | 'jpeg' | 'jpg' | 'tiff' | 'gif' | 'bmp'
+/**
+ * List of extensions and UTIs that is acceptable for output format.
+ */
+interface OutputUTIsByFileExtension {
+  bmp: 'com.microsoft.bmp'
+  dib: 'com.microsoft.bmp'
+  gif: 'com.compuserve.gif'
+  heic: 'public.heic'
+  jp2: 'public.jpeg-2000'
+  jpf: 'public.jpeg-2000'
+  jpx: 'public.jpeg-2000'
+  j2k: 'public.jpeg-2000'
+  j2c: 'public.jpeg-2000'
+  jpeg: 'public.jpeg'
+  jpg: 'public.jpeg'
+  jpe: 'public.jpeg'
+  pdf: 'com.adobe.pdf'
+  png: 'public.png'
+  psd: 'com.adobe.photoshop-image'
+  tga: 'com.truevision.tga-image'
+  tiff: 'public.tiff'
+  tif: 'public.tiff'
+}
+
+type OutputFileExtension = keyof OutputUTIsByFileExtension
+type OutputUTI = OutputUTIsByFileExtension[OutputFileExtension]
 
 /**
  * The `Output` represents output file name and format of {@link Canvas}.
@@ -913,21 +937,13 @@ class Output {
    * Output the context to disk with name and optional type (extension or UTI).
    * UTI must inherits `public.image`.
    *
-   * Acceptable extensions / UTIs:
-   *
-   * |extension|       UTI        |
-   * |---------|------------------|
-   * |   png   |    public.png    |
-   * |jpeg/jpg |   public.jpeg    |
-   * |  tiff   |   public.tiff    |
-   * |   gif   |com.compuserve.gif|
-   * |   bmp   |com.microsoft.bmp |
+   * @see {@link OutputUTIsByFileExtension} for available UTIs and file extensions.
    *
    * @param context - The {@link Canvas} to output.
    * @param name - The filename of the output file. It can be either of absolute path or relative path.
    * @param type - The preferred file extension of the output file or UTI. If not specified, the extension of `name` is used.
    */
-  constructor(context: Canvas, name: string, type?: FileExtension | UTI)
+  constructor(context: Canvas, name: string, type?: OutputFileExtension | OutputUTI)
 
   /**
    * The {@link Canvas} to output.
@@ -942,7 +958,7 @@ class Output {
   /**
    * The UTI of the output file.
    */
-  UTI: UTI
+  UTI: OutputUTI
 
   /**
    * Adds the output to the queue to be written to disk.
