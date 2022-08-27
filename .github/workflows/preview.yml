@@ -1,0 +1,29 @@
+name: Preview
+on: pull_request
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  preview:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: npm
+    - run: npm ci
+    - run: npm run build
+    - uses: nwtgck/actions-netlify@v1.2
+      with:
+        publish-dir: docs
+        alias: deploy-preview-${{ github.event.number }}
+        fails-without-credentials: true
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      timeout-minutes: 1
+    - uses: actions/upload-artifact@v3
+      with:
+        path: docs
