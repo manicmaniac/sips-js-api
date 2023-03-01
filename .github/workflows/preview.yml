@@ -10,7 +10,8 @@ concurrency:
 jobs:
   preview:
     runs-on: ubuntu-20.04
-    if: ${{ github.event_name == 'pull_request' || (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe to test')) }}
+    if: (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false) ||
+        (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe to test'))
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
