@@ -4,14 +4,14 @@
   "description": "Pretty document generator for macOS sips(1) JavaScript interface",
   "private": true,
   "scripts": {
-    "build": "typedoc"
+    "build": "typedoc --plugin typedoc-plugin-extras"
   },
   "keywords": [],
   "author": "Ryosuke Ito <rito.0305@gmail.com>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "typedoc": "~> 0.23.28",
+    "typedoc": "~> 0.24.0",
     "typedoc-plugin-extras": "~> 2.3.2",
     "typescript": "~> 5.0.4"
   }
