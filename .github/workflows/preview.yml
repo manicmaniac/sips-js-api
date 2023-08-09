@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   preview:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false) ||
         (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe to test'))
     steps:
