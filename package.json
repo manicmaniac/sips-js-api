@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "typedoc": "~> 0.24.0",
+    "typedoc": "~> 0.25.0",
     "typedoc-plugin-extras": "~> 2.3.2",
     "typescript": "~> 5.0.4"
   }
