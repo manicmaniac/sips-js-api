@@ -20,7 +20,7 @@ jobs:
         cache: npm
     - run: npm ci
     - run: npm run build
-    - uses: nwtgck/actions-netlify@v2.1
+    - uses: nwtgck/actions-netlify@v3.0
       with:
         publish-dir: docs
         alias: deploy-preview-${{ github.event.number }}
