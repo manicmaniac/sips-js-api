@@ -12,7 +12,7 @@
   "dependencies": {},
   "devDependencies": {
     "typedoc": "~> 0.25.0",
-    "typedoc-plugin-extras": "~> 3.0.0",
+    "typedoc-plugin-extras": "~> 3.1.0",
     "typescript": "~> 5.3.0"
   }
 }
