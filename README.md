@@ -41,15 +41,26 @@ Save the following script as `smile.js`.
 
 ```js
 const canvas = new Canvas(150, 150)
+
+canvas.strokeStyle = 'black'
+canvas.lineWidth = 2
+
+canvas.fillStyle = 'yellow'
 canvas.beginPath()
 canvas.arc(75, 75, 50, 0, Math.PI * 2, true)
-canvas.moveTo(110, 75)
-canvas.arc(75, 75, 35, 0, Math.PI, false)
-canvas.moveTo(65, 65)
-canvas.arc(60, 65, 5, 0, Math.PI * 2, true)
-canvas.moveTo(95, 65)
-canvas.arc(90, 65, 5, 0, Math.PI * 2, true)
+canvas.fill()
 canvas.stroke()
+
+canvas.fillStyle = 'black'
+canvas.beginPath()
+canvas.arc(60, 65, 5, 0, Math.PI * 2, true)
+canvas.arc(90, 65, 5, 0, Math.PI * 2, true)
+canvas.fill()
+
+canvas.beginPath()
+canvas.arc(75, 75, 35, 0, Math.PI, false)
+canvas.stroke()
+
 const output = new Output(canvas, sips.outputPath)
 output.addToQueue()
 ```
@@ -62,7 +73,7 @@ $ sips -j smile.js -o smile.png
 
 Output `smile.png` will be:
 
-![smile.png](https://camo.qiitausercontent.com/7f06af31822043a9220a176c2061ee3e9e374e44/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f37333432342f61313635346131332d376335302d323336642d353033382d3230643533623337306634312e706e67)
+![smile.png](assets/smile.png)
 
 ## License
 
