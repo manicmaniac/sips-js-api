@@ -1,6 +1,5 @@
 {
   "entryPoints": ["./types/index.d.ts"],
   "disableSources": true,
-  "readme": "README.md",
-  "footerLastModified": true
+  "readme": "README.md"
 }
